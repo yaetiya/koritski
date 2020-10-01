@@ -1,24 +1,22 @@
-import { combineReducers } from "redux";
-import { TStore } from "../typescript/langState";
+import { TStore } from "../typescript/storeType";
 import { CHANGE_LANG, CHANGE_THEME } from "./types";
 
 const initialState: TStore = {
   lang: {
-    lang: false,
+    lang: (localStorage.getItem('lang')=="false") ? false : true ,
   },
   theme: {
-    isLightTheme: true,
+    isLightTheme: (localStorage.getItem('theme')=="false") ? false : true,
   },
 };
 
 export const rootReducer = (state = initialState, action: any): TStore => {
-  console.log(state);
     switch (action.type) {
       case CHANGE_LANG:
-        console.log(state);
-        return { ...state, ...{ lang: { lang: state.lang.lang } } };
+        localStorage.setItem("lang",`${action.payload}`)
+        return { ...state, ...{ lang: { lang: action.payload } } };
       case CHANGE_THEME:
-        console.log(state);
+        localStorage.setItem("theme",`${action.payload}`)
         return {
           ...state,
           ...{ theme: { isLightTheme: action.payload } },

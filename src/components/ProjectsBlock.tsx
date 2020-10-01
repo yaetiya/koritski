@@ -3,12 +3,12 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import { Container, createStyles, Grid, Theme } from "@material-ui/core";
 import Project from "./Project";
 import { connect, ConnectedProps } from "react-redux";
-import { TStore } from "../typescript/langState";
+import { TStore } from "../typescript/storeType";
 import {
   lMainBackgroundColor,
   dMainBackgroundColor,
-  lLightBackgroundColor,
-  dLightBackgroundColor,
+  // lLightBackgroundColor,
+  // dLightBackgroundColor,
   lTextColor,
   dTextColor,
   lSecondaryTextColor,
@@ -16,10 +16,12 @@ import {
   lInShadow,
   dInShadow,
 } from "../config/palette";
+import { enLang, ruLang } from "../config/text";
 
 const mapStateToProps = (state: TStore) => {
   return {
     isLight: state.theme.isLightTheme,
+    isLang: state.lang.lang
   };
 };
 const mapDispatchToProps = {};
@@ -29,6 +31,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 interface TProjectsBlockProps extends PropsFromRedux {
   isLight: boolean;
+  isLang: boolean;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -53,14 +56,15 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const ProjectsBlock = ({ isLight }: TProjectsBlockProps) => {
+const ProjectsBlock = ({ isLight, isLang }: TProjectsBlockProps) => {
+  const lang = isLang ? enLang : ruLang;
   const classes = useStyles();
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
     : dMainBackgroundColor;
-  const LightBackgroundColor = isLight
-    ? lLightBackgroundColor
-    : dLightBackgroundColor;
+  // const LightBackgroundColor = isLight
+  //   ? lLightBackgroundColor
+  //   : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
   const SecondaryTextColor = isLight
     ? lSecondaryTextColor
@@ -81,8 +85,8 @@ const ProjectsBlock = ({ isLight }: TProjectsBlockProps) => {
               SecondaryTextColor={SecondaryTextColor}
               TextColor={TextColor}
               Shadow={InShadow}
-              subj="Web site"
-              mainText="Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui rati"
+              subj={lang.projects.cards[0].h}
+              mainText={lang.projects.cards[0].description}
             />
           </Grid>
           <Grid item xs>
@@ -91,8 +95,8 @@ const ProjectsBlock = ({ isLight }: TProjectsBlockProps) => {
               SecondaryTextColor={SecondaryTextColor}
               TextColor={TextColor}
               Shadow={InShadow}
-              subj="Web site"
-              mainText="Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui rati"
+              subj={lang.projects.cards[1].h}
+              mainText={lang.projects.cards[1].description}
             />
           </Grid>
         </Grid>

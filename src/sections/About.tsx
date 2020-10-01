@@ -4,13 +4,25 @@ import { createStyles, Theme } from "@material-ui/core";
 import TeamBlock from "../components/TeamBlock";
 import HeadText from "../components/HeadText";
 import ProjectsBlock from "../components/ProjectsBlock";
-import { dLightBackgroundColor, dMainBackgroundColor, dSecondaryTextColor, dTextColor, lLightBackgroundColor, lMainBackgroundColor, lSecondaryTextColor, lTextColor, orangeColor } from "../config/palette";
+import {
+  // dLightBackgroundColor,
+  // dMainBackgroundColor,
+  // dSecondaryTextColor,
+  dTextColor,
+  // lLightBackgroundColor,
+  // lMainBackgroundColor,
+  // lSecondaryTextColor,
+  lTextColor,
+  orangeColor,
+} from "../config/palette";
 import { connect, ConnectedProps } from "react-redux";
-import { TStore } from "../typescript/langState";
+import { TStore } from "../typescript/storeType";
+import { enLang, ruLang } from "../config/text";
 
 const mapStateToProps = (state: TStore) => {
   return {
     isLight: state.theme.isLightTheme,
+    isLang: state.lang.lang
   };
 };
 const mapDispatchToProps = {};
@@ -20,6 +32,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 interface TAboutProps extends PropsFromRedux {
   isLight: boolean;
+  isLang:  boolean;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -85,31 +98,31 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const About = ({isLight}:TAboutProps) => {
-  const MainBackgroundColor = isLight
-  ? lMainBackgroundColor
-  : dMainBackgroundColor;
-const LightBackgroundColor = isLight
-  ? lLightBackgroundColor
-  : dLightBackgroundColor;
-const TextColor = isLight ? lTextColor : dTextColor;
-const SecondaryTextColor = isLight
-  ? lSecondaryTextColor
-  : dSecondaryTextColor;
+const About = ({ isLight, isLang }: TAboutProps) => {
+  const lang = isLang ? enLang: ruLang;
+  //   const MainBackgroundColor = isLight
+  //   ? lMainBackgroundColor
+  //   : dMainBackgroundColor;
+  // const LightBackgroundColor = isLight
+  //   ? lLightBackgroundColor
+  //   : dLightBackgroundColor;
+  const TextColor = isLight ? lTextColor : dTextColor;
+  // const SecondaryTextColor = isLight
+  //   ? lSecondaryTextColor
+  //   : dSecondaryTextColor;
 
   const classes = useStyles();
 
   return (
     <div>
-      <HeadText mainText="PROJECTS" lightColor={TextColor}/>
+      <HeadText mainText={lang.headl.projects} lightColor={TextColor} />
       <ProjectsBlock />
-      <HeadText mainText="ABOUT US" lightColor={TextColor}/>
+      <HeadText mainText={lang.headl.about} lightColor={TextColor} />
       <div className={classes.RowSec}>
         <TeamBlock />
       </div>
     </div>
   );
-}
+};
 
-
-export default  connector(About);
+export default connector(About);

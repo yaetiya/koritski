@@ -3,8 +3,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import { createStyles, Theme, Typography } from "@material-ui/core";
 
 type TProject = {
-  subj: String;
-  mainText: String;
+  subj: string;
+  mainText: string;
   MainBackgroundColor: string;
   SecondaryTextColor: string;
   TextColor: string;
@@ -42,6 +42,7 @@ export default function Project({
       ProjecttextLow: {
         color: SecondaryTextColor,
         paddingBottom: 40,
+        paddingTop: 20,
       },
       "@media (max-width: 400px)": {
         ProjectWrapper: {

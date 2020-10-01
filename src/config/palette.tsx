@@ -18,7 +18,7 @@ export const dMainBackgroundColor = "#1B1D22";
 export const dLightBackgroundColor = "#21262D";
 export const dTextColor = "#FFFFFF";
 export const dSecondaryTextColor = "#A8A2A0";
-export const dOutShadow = "-10px -10px 40px #222831, 10px 10px 40px #121212";
+export const dOutShadow = "-10px -10px 40px #212529, 10px 10px 40px #121212";
 export const dInShadow = "inset 20px 20px 30px #121417, inset -20px -20px 50px #212529";
 export const dNavSmallBtnShadow = "5px 5px 40px rgba(0, 0, 0, 0.4)"
 

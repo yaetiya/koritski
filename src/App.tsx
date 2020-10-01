@@ -8,7 +8,7 @@ import { changeTheme } from "./redux/actions";
 import FooterSection from "./sections/Footer";
 import Form from "./sections/Form";
 import HeaderSection from "./sections/HeaderSection";
-import { TStore } from "./typescript/langState";
+import { TStore } from "./typescript/storeType";
 import { dMainBackgroundColor, lMainBackgroundColor, theme } from "./config/palette";
 
 const mapStateToProps = (state: TStore) => {
@@ -42,13 +42,13 @@ function App({ isLight }: TAppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <body className={classes.bodyComponent}>
+      <div className={classes.bodyComponent}>
         <HeaderSection />
          <About />
         <Form />
         <FooterSection />
         <ScrollTopBtn />
-      </body>
+      </div>
     </ThemeProvider>
   );
 }

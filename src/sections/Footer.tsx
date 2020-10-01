@@ -3,16 +3,16 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import React from "react";
 import { connect, ConnectedProps } from "react-redux";
 import {
-  lMainBackgroundColor,
-  dMainBackgroundColor,
+  // lMainBackgroundColor,
+  // dMainBackgroundColor,
   lLightBackgroundColor,
   dLightBackgroundColor,
   lTextColor,
   dTextColor,
-  lSecondaryTextColor,
-  dSecondaryTextColor,
+  // lSecondaryTextColor,
+  // dSecondaryTextColor,
 } from "../config/palette";
-import { TStore } from "../typescript/langState";
+import { TStore } from "../typescript/storeType";
 
 const mapStateToProps = (state: TStore) => {
   return {
@@ -29,16 +29,16 @@ interface TFooterProps extends PropsFromRedux {
 }
 
 function FooterSection({ isLight }: TFooterProps) {
-  const MainBackgroundColor = isLight
-    ? lMainBackgroundColor
-    : dMainBackgroundColor;
+  // const MainBackgroundColor = isLight
+  //   ? lMainBackgroundColor
+  //   : dMainBackgroundColor;
   const LightBackgroundColor = isLight
     ? lLightBackgroundColor
     : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
-  const SecondaryTextColor = isLight
-    ? lSecondaryTextColor
-    : dSecondaryTextColor;
+  // const SecondaryTextColor = isLight
+  //   ? lSecondaryTextColor
+  //   : dSecondaryTextColor;
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       footer: {
@@ -79,7 +79,7 @@ function FooterSection({ isLight }: TFooterProps) {
         <Container maxWidth="lg">
           <div className={classes.footer}>
             <div className={classes.logo_wrapper}>
-              <img src="logo.png" className={classes.logo}></img>
+              <img src="logo.png" className={classes.logo} alt="logo"></img>
               <div>
                 <Typography variant="h6" className={classes.contacts}>
                   koritsky@gmail.com

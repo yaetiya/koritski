@@ -33,7 +33,7 @@ export default function HeadText({ mainText, lightColor }: THeadText) {
 
   return (
     <div className={classes.hWrapper}>
-      <img src="logo.png" className={classes.hLogo}></img>
+      <img src="logo.png" className={classes.hLogo} alt="logo"></img>
       <Typography component="h4" className={classes.hText}>
         {mainText}
       </Typography>

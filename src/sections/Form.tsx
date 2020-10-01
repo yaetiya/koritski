@@ -13,24 +13,26 @@ import {
 import HeadText from "../components/HeadText";
 import { useState } from "react";
 import { connect, ConnectedProps } from "react-redux";
-import { TStore } from "../typescript/langState";
+import { TStore } from "../typescript/storeType";
 import {
   dInShadow,
   dLightBackgroundColor,
   dMainBackgroundColor,
-  dSecondaryTextColor,
+  // dSecondaryTextColor,
   dTextColor,
   lInShadow,
   lLightBackgroundColor,
   lMainBackgroundColor,
-  lSecondaryTextColor,
+  // lSecondaryTextColor,
   lTextColor,
   orangeColor,
 } from "../config/palette";
+import { enLang, ruLang } from "../config/text";
 
 const mapStateToProps = (state: TStore) => {
   return {
     isLight: state.theme.isLightTheme,
+    isLang: state.lang.lang
   };
 };
 const mapDispatchToProps = {};
@@ -40,6 +42,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 interface TFormProps extends PropsFromRedux {
   isLight: boolean;
+  isLang: boolean;
 }
 
 type TForm = {
@@ -48,7 +51,8 @@ type TForm = {
   company: String;
   idea: String;
 };
-const Form = ({ isLight }: TFormProps) => {
+const Form = ({ isLight, isLang }: TFormProps) => {
+  const lang = isLang ? enLang : ruLang
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
     : dMainBackgroundColor;
@@ -56,9 +60,9 @@ const Form = ({ isLight }: TFormProps) => {
     ? lLightBackgroundColor
     : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
-  const SecondaryTextColor = isLight
-    ? lSecondaryTextColor
-    : dSecondaryTextColor;
+  // const SecondaryTextColor = isLight
+  //   ? lSecondaryTextColor
+  //   : dSecondaryTextColor;
   const InShadow = isLight ? lInShadow : dInShadow;
 
   const useStyles = makeStyles((theme: Theme) =>
@@ -172,7 +176,7 @@ const Form = ({ isLight }: TFormProps) => {
   return (
     <Container maxWidth="lg" className={classes.formSection}>
       <HeadText
-        mainText="TELL US ABOUT YOUR APPLICATION IDEA"
+        mainText={lang.headl.form}
         lightColor={TextColor}
       />
       <form>
@@ -186,7 +190,7 @@ const Form = ({ isLight }: TFormProps) => {
                   InputProps={{
                     className: classes.inputColor,
                   }}
-                  placeholder="PHONE"
+                  placeholder={lang.form.placeholders.phone}
                   onChange={changeTextFieldHandler}
                   value={state?.phone}
                   color="primary"
@@ -200,7 +204,7 @@ const Form = ({ isLight }: TFormProps) => {
                   }}
                   onChange={changeTextFieldHandler}
                   value={state?.email}
-                  placeholder="EMAIL"
+                  placeholder={lang.form.placeholders.email}
                   color="primary"
                   className={classes.LTBTextField}
                 />
@@ -212,7 +216,7 @@ const Form = ({ isLight }: TFormProps) => {
                   }}
                   onChange={changeTextFieldHandler}
                   value={state?.company}
-                  placeholder="COMPANY"
+                  placeholder={lang.form.placeholders.company}
                   color="primary"
                   className={classes.LTBTextField}
                 />
@@ -230,7 +234,7 @@ const Form = ({ isLight }: TFormProps) => {
                   }}
                   value={state?.idea}
                   onChange={changeTextFieldHandler}
-                  placeholder="DESCRIBE YOUR IDEA..."
+                  placeholder={lang.form.placeholders.idea}
                   color="primary"
                   multiline={true}
                   className={classes.LTDTextField}
@@ -245,7 +249,7 @@ const Form = ({ isLight }: TFormProps) => {
               <InstagramIcon className={classes.socialBtn} />
             </Button>
             <Button className={classes.sbBtn} onClick={submitHandler}>
-              SUBMIT
+              {lang.form.submitBtn}
             </Button>
           </Grid>
         </Grid>

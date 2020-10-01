@@ -1,9 +1,7 @@
 import {
   Button,
-  Checkbox,
   Container,
   createStyles,
-  FormControlLabel,
   Theme,
   Typography,
 } from "@material-ui/core";
@@ -14,14 +12,14 @@ import {
   orangeColor,
   lOutShadow,
   dOutShadow,
-  lLightBackgroundColor,
-  dLightBackgroundColor,
+  // lLightBackgroundColor,
+  // dLightBackgroundColor,
   lMainBackgroundColor,
   dMainBackgroundColor,
   lTextColor,
   dTextColor,
-  lSecondaryTextColor,
-  dSecondaryTextColor,
+  // lSecondaryTextColor,
+  // dSecondaryTextColor,
   lNavSmallBtnShadow,
   dNavSmallBtnShadow,
 } from "../config/palette";
@@ -30,11 +28,13 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import { changeLang, changeTheme } from "../redux/actions";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import { TisLightTheme, TLangState, TStore } from "../typescript/langState";
+import { TStore } from "../typescript/storeType";
+import { enLang, ruLang } from "../config/text";
 
 const mapStateToProps = (state: TStore) => {
   return {
     isLight: state.theme.isLightTheme,
+    isLang: state.lang.lang
   };
 };
 const mapDispatchToProps = {
@@ -48,19 +48,22 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 interface THeaderProps extends PropsFromRedux {
   isLight: boolean;
   changeTheme: any;
+  changeLang: any;
+  isLang: boolean;
 }
 
-const HeaderSection = ({ isLight, changeTheme }: THeaderProps) => {
+const HeaderSection = ({ isLight, isLang, changeTheme, changeLang }: THeaderProps) => {
+  const lang = isLang ? enLang : ruLang
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
     : dMainBackgroundColor;
-  const LightBackgroundColor = isLight
-    ? lLightBackgroundColor
-    : dLightBackgroundColor;
+  // const LightBackgroundColor = isLight
+  //   ? lLightBackgroundColor
+  //   : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
-  const SecondaryTextColor = isLight
-    ? lSecondaryTextColor
-    : dSecondaryTextColor;
+  // const SecondaryTextColor = isLight
+  //   ? lSecondaryTextColor
+  //   : dSecondaryTextColor;
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -206,6 +209,9 @@ const HeaderSection = ({ isLight, changeTheme }: THeaderProps) => {
         cardContentWrapper: {
           display: "block",
         },
+        head: {
+          minHeight: 900,
+        },
 
         card_h5: {
           // display: "none",
@@ -300,8 +306,19 @@ const HeaderSection = ({ isLight, changeTheme }: THeaderProps) => {
   const classes = useStyles();
   let scroll = animateScroll;
 
-  const changeLangHandler = (event: any) => {
+  const changeLangHandlerToRu = (event: any) => {
+    event.persist();
     console.log(event);
+    if (isLang){
+      changeLang(false)
+    }
+  };
+  const changeLangHandlerToEn = (event: any) => {
+    event.persist();
+    console.log(event);
+    if (!isLang){
+      changeLang(true)
+    }
   };
   const changeThemeHandler = () => {
     console.log(isLight);
@@ -314,7 +331,7 @@ const HeaderSection = ({ isLight, changeTheme }: THeaderProps) => {
         <Container maxWidth="lg">
           <div className={classes.nav}>
             <div className={classes.logo_wrapper}>
-              <img src="logo.png" className={classes.logo}></img>
+              <img src="logo.png" className={classes.logo} alt="logo"></img>
               <Typography className={classes.logo_h}>KORITSKI</Typography>
             </div>
             <Button
@@ -323,22 +340,23 @@ const HeaderSection = ({ isLight, changeTheme }: THeaderProps) => {
                 scroll.scrollToBottom();
               }}
             >
-              ORDER
+              {lang.header.orderBtn}
             </Button>
           </div>
         </Container>
         <div className={classes.langWrapper}>
           <Button
-            className={classes.langBtn}
-            onClick={changeLangHandler}
+            className={!isLang ? (classes.langBtn + " " + classes.langActive) : (classes.langBtn)}
             id="ru"
+            onClick={changeLangHandlerToRu}
           >
             Ru
           </Button>
           <Button
-            className={classes.langBtn + " " + classes.langActive}
-            onClick={changeLangHandler}
+            className={isLang ? (classes.langBtn + " " + classes.langActive) : (classes.langBtn)}
+            onClick={changeLangHandlerToEn}
             id="en"
+            name="ru"
           >
             En
           </Button>
@@ -359,7 +377,7 @@ const HeaderSection = ({ isLight, changeTheme }: THeaderProps) => {
         </div>
         <div className={classes.cardWrapper}>
           <div className={classes.cardContentWrapper}>
-            <img src="logo.png" className={classes.cardLogo}></img>
+            <img src="logo.png" className={classes.cardLogo} alt="logo"></img>
             <div className={classes.cardTextWrapper}>
               <div className={classes.cardTopText}>
                 <Typography className={classes.card_h}>KORITSKI</Typography>
@@ -367,7 +385,7 @@ const HeaderSection = ({ isLight, changeTheme }: THeaderProps) => {
               </div>
               <div>
                 <Typography className={classes.card_hm}>
-                  KNOW YOUR DIGITAL INTELLIGENCE
+                  {lang.header.slog}
                 </Typography>
               </div>
             </div>
