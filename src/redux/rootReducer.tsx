@@ -1,13 +1,15 @@
 import { TStore } from "../typescript/storeType";
-import { CHANGE_LANG, CHANGE_THEME } from "./types";
+import { CHANGE_LANG, CHANGE_THEME, FORM_SEND } from "./types";
 
 const initialState: TStore = {
   lang: {
-    lang: (localStorage.getItem('lang')=="false") ? false : true ,
+    lang: (localStorage.getItem('lang')==="false") ? false : true ,
   },
   theme: {
-    isLightTheme: (localStorage.getItem('theme')=="false") ? false : true,
+    isLightTheme: (localStorage.getItem('theme')==="false") ? false : true,
   },
+  lastSubmit: {
+  }
 };
 
 export const rootReducer = (state = initialState, action: any): TStore => {
@@ -21,6 +23,8 @@ export const rootReducer = (state = initialState, action: any): TStore => {
           ...state,
           ...{ theme: { isLightTheme: action.payload } },
         };
+      case FORM_SEND:
+        return {...state, ...{lastSubmit: action.payload}}
       default:
         return state;
     }

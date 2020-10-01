@@ -1,4 +1,5 @@
-import { CHANGE_LANG, CHANGE_THEME } from "./types";
+import { TFormData } from "../typescript/form";
+import { CHANGE_LANG, CHANGE_THEME, FORM_SEND } from "./types";
 
 export function changeLang(newLang: boolean) {
   return {
@@ -13,3 +14,13 @@ export function changeTheme(newIsLight: boolean) {
     payload: newIsLight,
   };
 }
+
+
+export function sendForm(formData: TFormData) {
+  console.log(formData);
+  return {
+    type: FORM_SEND,
+    payload: formData,
+  };
+}
+

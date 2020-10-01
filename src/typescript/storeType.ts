@@ -1,3 +1,5 @@
+import { TFormData } from "./form";
+
 export type TStore = {
   theme: {
     isLightTheme: boolean;
@@ -5,4 +7,5 @@ export type TStore = {
   lang: {
     lang: boolean;
   };
+  lastSubmit:TFormData|{};
 };

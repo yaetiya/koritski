@@ -4,7 +4,6 @@ import React from "react";
 import { connect, ConnectedProps } from "react-redux";
 import ScrollTopBtn from "./components/ScrollTopBtn";
 import About from "./sections/About";
-import { changeTheme } from "./redux/actions";
 import FooterSection from "./sections/Footer";
 import Form from "./sections/Form";
 import HeaderSection from "./sections/HeaderSection";
@@ -17,7 +16,6 @@ const mapStateToProps = (state: TStore) => {
   };
 };
 const mapDispatchToProps = {
-  changeTheme,
 };
 const connector = connect(mapStateToProps, mapDispatchToProps);
 
@@ -25,7 +23,6 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 interface TAppProps extends PropsFromRedux {
   isLight: boolean;
-  changeTheme: any;
 }
 
 function App({ isLight }: TAppProps) {

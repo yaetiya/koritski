@@ -1,12 +1,16 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import CloseIcon from "@material-ui/icons/Close";
 
+import { sendForm } from "../redux/actions";
 import {
   Button,
   Container,
   createStyles,
   Grid,
+  IconButton,
+  Snackbar,
   TextField,
   Theme,
 } from "@material-ui/core";
@@ -28,22 +32,7 @@ import {
   orangeColor,
 } from "../config/palette";
 import { enLang, ruLang } from "../config/text";
-
-const mapStateToProps = (state: TStore) => {
-  return {
-    isLight: state.theme.isLightTheme,
-    isLang: state.lang.lang
-  };
-};
-const mapDispatchToProps = {};
-const connector = connect(mapStateToProps, mapDispatchToProps);
-
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-interface TFormProps extends PropsFromRedux {
-  isLight: boolean;
-  isLang: boolean;
-}
+import { TFormData } from "../typescript/form";
 
 type TForm = {
   phone: String;
@@ -51,8 +40,30 @@ type TForm = {
   company: String;
   idea: String;
 };
-const Form = ({ isLight, isLang }: TFormProps) => {
-  const lang = isLang ? enLang : ruLang
+
+const mapStateToProps = (state: TStore) => {
+  return {
+    isLight: state.theme.isLightTheme,
+    isLang: state.lang.lang,
+  };
+};
+const mapDispatchToProps = {
+  sendForm,
+};
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+interface TFormProps extends PropsFromRedux {
+  isLight: boolean;
+  isLang: boolean;
+  sendForm: any;
+}
+
+const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
+  const [open, setOpen] = React.useState(false);
+  const [isError, setIsError] = useState(false);
+  const lang = isLang ? enLang : ruLang;
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
     : dMainBackgroundColor;
@@ -67,6 +78,10 @@ const Form = ({ isLight, isLang }: TFormProps) => {
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
+      alert: {
+        backgroundColor: orangeColor,
+        color: TextColor,
+      },
       formSection: {
         paddingBottom: 120,
       },
@@ -149,112 +164,181 @@ const Form = ({ isLight, isLang }: TFormProps) => {
       },
     })
   );
-
   const [state, setState] = useState<TForm>({
     phone: "",
     email: "",
     company: "",
     idea: "",
   });
+
   const classes = useStyles();
   const submitHandler = () => {
-    const item = {
+    const item: TFormData = {
       ...state,
-      time: Date.now().toString(),
+      id: Date.now().toString(),
     };
-    console.log(item);
+    if (validation(item)) {
+      sendForm(item);
+      setState({
+        phone: "",
+        email: "",
+        company: "",
+        idea: "",
+      });
+      setIsError(false);
+    } else {
+      setIsError(true);
+    }
+    setOpen(true);
+  };
+  const validation = (item: TFormData): boolean => {
+    let noError: boolean = true;
+    if (
+      item.email.indexOf("@") === -1 ||
+      item.email.indexOf(".") === -1 ||
+      item.company.trim().length === 0 ||
+      item.idea.trim().length === 0 ||
+      item.phone.trim().length === 0
+    ) {
+      noError = false;
+    }
+    return noError;
   };
   const changeTextFieldHandler = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     event.persist();
-    setState((prev) => ({
+    setState((prev: TForm) => ({
       ...prev,
       ...{ [event.target.name]: event.target.value },
     }));
   };
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (
+    event: React.SyntheticEvent | React.MouseEvent,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
-    <Container maxWidth="lg" className={classes.formSection}>
-      <HeadText
-        mainText={lang.headl.form}
-        lightColor={TextColor}
-      />
-      <form>
-        <Grid container spacing={3} className={classes.formWrapper}>
-          <Grid item xs>
-            <div className={classes.LTBBackground}>
-              <div className={classes.LTBWrapper}>
-                <TextField
-                  id="phone"
-                  name="phone"
-                  InputProps={{
-                    className: classes.inputColor,
-                  }}
-                  placeholder={lang.form.placeholders.phone}
-                  onChange={changeTextFieldHandler}
-                  value={state?.phone}
-                  color="primary"
-                  className={classes.LTBTextField}
-                />
-                <TextField
-                  id="email"
-                  name="email"
-                  InputProps={{
-                    className: classes.inputColor,
-                  }}
-                  onChange={changeTextFieldHandler}
-                  value={state?.email}
-                  placeholder={lang.form.placeholders.email}
-                  color="primary"
-                  className={classes.LTBTextField}
-                />
-                <TextField
-                  name="company"
-                  id="company"
-                  InputProps={{
-                    className: classes.inputColor,
-                  }}
-                  onChange={changeTextFieldHandler}
-                  value={state?.company}
-                  placeholder={lang.form.placeholders.company}
-                  color="primary"
-                  className={classes.LTBTextField}
-                />
+    <>
+      <div>
+        <Snackbar
+          ContentProps={{
+            classes: {
+                root: classes.alert
+            }
+        }}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          message={isError ? "Error" : "Submited"}
+          action={
+            <React.Fragment>
+              <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={handleClose}
+              >
+                <CloseIcon fontSize="small" />
+              </IconButton>
+            </React.Fragment>
+          }
+        />
+      </div>
+
+      <Container maxWidth="lg" className={classes.formSection}>
+        <HeadText mainText={lang.headl.form} lightColor={TextColor} />
+        <form>
+          <Grid container spacing={3} className={classes.formWrapper}>
+            <Grid item xs>
+              <div className={classes.LTBBackground}>
+                <div className={classes.LTBWrapper}>
+                  <TextField
+                    id="phone"
+                    name="phone"
+                    InputProps={{
+                      className: classes.inputColor,
+                    }}
+                    placeholder={lang.form.placeholders.phone}
+                    onChange={changeTextFieldHandler}
+                    value={state?.phone}
+                    color="primary"
+                    className={classes.LTBTextField}
+                  />
+                  <TextField
+                    id="email"
+                    name="email"
+                    InputProps={{
+                      className: classes.inputColor,
+                    }}
+                    onChange={changeTextFieldHandler}
+                    value={state?.email}
+                    placeholder={lang.form.placeholders.email}
+                    color="primary"
+                    className={classes.LTBTextField}
+                  />
+                  <TextField
+                    name="company"
+                    id="company"
+                    InputProps={{
+                      className: classes.inputColor,
+                    }}
+                    onChange={changeTextFieldHandler}
+                    value={state?.company}
+                    placeholder={lang.form.placeholders.company}
+                    color="primary"
+                    className={classes.LTBTextField}
+                  />
+                </div>
               </div>
-            </div>
-          </Grid>
-          <Grid item xs={9}>
-            <div className={classes.LTDBackground}>
-              <div className={classes.LTDWrapper}>
-                <TextField
-                  id="idea"
-                  name="idea"
-                  InputProps={{
-                    className: classes.inputColor,
-                  }}
-                  value={state?.idea}
-                  onChange={changeTextFieldHandler}
-                  placeholder={lang.form.placeholders.idea}
-                  color="primary"
-                  multiline={true}
-                  className={classes.LTDTextField}
-                />
+            </Grid>
+            <Grid item xs={9}>
+              <div className={classes.LTDBackground}>
+                <div className={classes.LTDWrapper}>
+                  <TextField
+                    id="idea"
+                    name="idea"
+                    InputProps={{
+                      className: classes.inputColor,
+                    }}
+                    value={state?.idea}
+                    onChange={changeTextFieldHandler}
+                    placeholder={lang.form.placeholders.idea}
+                    color="primary"
+                    multiline={true}
+                    className={classes.LTDTextField}
+                  />
+                </div>
               </div>
-            </div>
+            </Grid>
           </Grid>
-        </Grid>
-        <Grid container>
-          <Grid item className={classes.alignRight} xs>
-            <Button className={classes.socialBtnWrapper}>
-              <InstagramIcon className={classes.socialBtn} />
-            </Button>
-            <Button className={classes.sbBtn} onClick={submitHandler}>
-              {lang.form.submitBtn}
-            </Button>
+          <Grid container>
+            <Grid item className={classes.alignRight} xs>
+              <Button className={classes.socialBtnWrapper}>
+                <InstagramIcon className={classes.socialBtn} />
+              </Button>
+              <Button className={classes.sbBtn} onClick={submitHandler}>
+                {lang.form.submitBtn}
+              </Button>
+            </Grid>
           </Grid>
-        </Grid>
-      </form>
-    </Container>
+        </form>
+      </Container>
+    </>
   );
 };
 
