@@ -34,7 +34,7 @@ import { enLang, ruLang } from "../config/text";
 const mapStateToProps = (state: TStore) => {
   return {
     isLight: state.theme.isLightTheme,
-    isLang: state.lang.lang
+    isLang: state.lang.lang,
   };
 };
 const mapDispatchToProps = {
@@ -52,8 +52,13 @@ interface THeaderProps extends PropsFromRedux {
   isLang: boolean;
 }
 
-const HeaderSection = ({ isLight, isLang, changeTheme, changeLang }: THeaderProps) => {
-  const lang = isLang ? enLang : ruLang
+const HeaderSection = ({
+  isLight,
+  isLang,
+  changeTheme,
+  changeLang,
+}: THeaderProps) => {
+  const lang = isLang ? enLang : ruLang;
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
     : dMainBackgroundColor;
@@ -163,12 +168,13 @@ const HeaderSection = ({ isLight, isLang, changeTheme, changeLang }: THeaderProp
         backgroundColor: MainBackgroundColor,
         color: TextColor,
         height: 64,
-        boxShadow: isLight ? lNavSmallBtnShadow : dNavSmallBtnShadow,
+        // boxShadow: isLight ? lNavSmallBtnShadow : dNavSmallBtnShadow,
         width: 64,
         fontSize: 14,
         borderRadius: 11,
         marginTop: 20,
         marginBottom: 20,
+        boxShadow: isLight ? lOutShadow : dOutShadow,
       },
       colorChangerBtn: {
         backgroundColor: orangeColor,
@@ -309,15 +315,15 @@ const HeaderSection = ({ isLight, isLang, changeTheme, changeLang }: THeaderProp
   const changeLangHandlerToRu = (event: any) => {
     event.persist();
     console.log(event);
-    if (isLang){
-      changeLang(false)
+    if (isLang) {
+      changeLang(false);
     }
   };
   const changeLangHandlerToEn = (event: any) => {
     event.persist();
     console.log(event);
-    if (!isLang){
-      changeLang(true)
+    if (!isLang) {
+      changeLang(true);
     }
   };
   const changeThemeHandler = () => {
@@ -346,14 +352,22 @@ const HeaderSection = ({ isLight, isLang, changeTheme, changeLang }: THeaderProp
         </Container>
         <div className={classes.langWrapper}>
           <Button
-            className={!isLang ? (classes.langBtn + " " + classes.langActive) : (classes.langBtn)}
+            className={
+              !isLang
+                ? classes.langBtn + " " + classes.langActive
+                : classes.langBtn
+            }
             id="ru"
             onClick={changeLangHandlerToRu}
           >
             Ru
           </Button>
           <Button
-            className={isLang ? (classes.langBtn + " " + classes.langActive) : (classes.langBtn)}
+            className={
+              isLang
+                ? classes.langBtn + " " + classes.langActive
+                : classes.langBtn
+            }
             onClick={changeLangHandlerToEn}
             id="en"
             name="ru"

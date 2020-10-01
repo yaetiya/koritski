@@ -61,8 +61,8 @@ interface TFormProps extends PropsFromRedux {
 }
 
 const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
+  const [alertMessage, setAlertMessage] = useState("");
   const [open, setOpen] = React.useState(false);
-  const [isError, setIsError] = useState(false);
   const lang = isLang ? enLang : ruLang;
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
@@ -185,9 +185,6 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
         company: "",
         idea: "",
       });
-      setIsError(false);
-    } else {
-      setIsError(true);
     }
     setOpen(true);
   };
@@ -201,6 +198,9 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
       item.phone.trim().length === 0
     ) {
       noError = false;
+      setAlertMessage(lang.form.alerts.error);
+    }else{
+      setAlertMessage(lang.form.alerts.submit);
     }
     return noError;
   };
@@ -214,9 +214,6 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
     }));
   };
 
-  const handleClick = () => {
-    setOpen(true);
-  };
 
   const handleClose = (
     event: React.SyntheticEvent | React.MouseEvent,
@@ -244,7 +241,7 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
           open={open}
           autoHideDuration={6000}
           onClose={handleClose}
-          message={isError ? "Error" : "Submited"}
+          message={alertMessage}
           action={
             <React.Fragment>
               <IconButton

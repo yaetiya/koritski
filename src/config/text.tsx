@@ -25,6 +25,10 @@ export const enLang = {
     },
   },
   form: {
+    alerts:{
+      error: "Your data is nt correct",
+      submit: "Submitted!"
+    },
     submitBtn: "SUBMIT",
     placeholders: {
       phone: "PHONE",
@@ -88,6 +92,10 @@ export const ruLang = {
     },
   },
   form: {
+    alerts:{
+      error: "Вы ввели некоррестные данные",
+      submit: "Отправлено!"
+    },
     submitBtn: "ПОСЛАТЬ",
     placeholders: {
       phone: "ТЕЛЕФОН",
