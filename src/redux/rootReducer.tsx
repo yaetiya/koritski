@@ -30,9 +30,14 @@ export const rootReducer = (state = initialState, action: any): TStore => {
         service_id: "service_04ep1gj",
         template_id: "template_3mmsqqn",
         user_id: "user_ZtdLmGhn3fFEh886t0qEZ",
+        
         template_params: {
           username: action.payload.company,
-          subject: action.payload.phone + "\n" + action.payload.email + "\n" + action.payload.idea,
+          company: action.payload.company,
+          email: action.payload.email,
+          phone: action.payload.phone,
+          idea: action.payload.idea,
+          id: action.payload.id,
           "g-recaptcha-response": "03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...",
         },
       };
