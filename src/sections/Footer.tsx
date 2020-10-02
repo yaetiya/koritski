@@ -82,10 +82,10 @@ function FooterSection({ isLight }: TFooterProps) {
               <img src="logo.png" className={classes.logo} alt="logo"></img>
               <div>
                 <Typography variant="h6" className={classes.contacts}>
-                  koritsky@gmail.com
+                  request@koritski.com
                 </Typography>
                 <Typography variant="h6" className={classes.contacts}>
-                  +911 111 11 11
+                  +111 111 11 11
                 </Typography>
               </div>
             </div>
