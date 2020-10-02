@@ -20,8 +20,8 @@ import {
   dTextColor,
   // lSecondaryTextColor,
   // dSecondaryTextColor,
-  lNavSmallBtnShadow,
-  dNavSmallBtnShadow,
+  // lNavSmallBtnShadow,
+  // dNavSmallBtnShadow,
 } from "../config/palette";
 import { connect, ConnectedProps } from "react-redux";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -30,6 +30,7 @@ import { changeLang, changeTheme } from "../redux/actions";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import { TStore } from "../typescript/storeType";
 import { enLang, ruLang } from "../config/text";
+import { facebookLink, instagramLink } from "../config/links";
 
 const mapStateToProps = (state: TStore) => {
   return {
@@ -314,20 +315,17 @@ const HeaderSection = ({
 
   const changeLangHandlerToRu = (event: any) => {
     event.persist();
-    console.log(event);
     if (isLang) {
       changeLang(false);
     }
   };
   const changeLangHandlerToEn = (event: any) => {
     event.persist();
-    console.log(event);
     if (!isLang) {
       changeLang(true);
     }
   };
   const changeThemeHandler = () => {
-    console.log(isLight);
     changeTheme(!isLight);
   };
 
@@ -376,10 +374,10 @@ const HeaderSection = ({
           </Button>
         </div>
         <div className={classes.socialWrapper}>
-          <Button className={classes.langBtn}>
+          <Button className={classes.langBtn} href={facebookLink} target="_blanck">
             <FacebookIcon className={classes.socialBtn} />
           </Button>
-          <Button className={classes.langBtn}>
+          <Button className={classes.langBtn} href={instagramLink} target="_blanck">
             <InstagramIcon className={classes.socialBtn} />
           </Button>
           <Button

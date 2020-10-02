@@ -33,6 +33,7 @@ import {
 } from "../config/palette";
 import { enLang, ruLang } from "../config/text";
 import { TFormData } from "../typescript/form";
+import { instagramLink } from "../config/links";
 
 type TForm = {
   phone: String;
@@ -199,7 +200,8 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
     ) {
       noError = false;
       setAlertMessage(lang.form.alerts.error);
-    }else{
+    }
+    else{
       setAlertMessage(lang.form.alerts.submit);
     }
     return noError;
@@ -325,7 +327,7 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
           </Grid>
           <Grid container>
             <Grid item className={classes.alignRight} xs>
-              <Button className={classes.socialBtnWrapper}>
+              <Button className={classes.socialBtnWrapper} href={instagramLink} target="_blanck">
                 <InstagramIcon className={classes.socialBtn} />
               </Button>
               <Button className={classes.sbBtn} onClick={submitHandler}>

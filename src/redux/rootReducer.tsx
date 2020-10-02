@@ -25,7 +25,6 @@ export const rootReducer = (state = initialState, action: any): TStore => {
         ...{ theme: { isLightTheme: action.payload } },
       };
     case FORM_SEND:
-      console.log(action.payload);
       var data = {
         service_id: "service_04ep1gj",
         template_id: "template_3mmsqqn",

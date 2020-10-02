@@ -8,7 +8,6 @@ export function changeLang(newLang: boolean) {
   };
 }
 export function changeTheme(newIsLight: boolean) {
-  console.log(newIsLight);
   return {
     type: CHANGE_THEME,
     payload: newIsLight,
@@ -17,7 +16,6 @@ export function changeTheme(newIsLight: boolean) {
 
 
 export function sendForm(formData: TFormData) {
-  console.log(formData);
   return {
     type: FORM_SEND,
     payload: formData,

@@ -35,6 +35,7 @@ function App({ isLight }: TAppProps) {
       },
     })
   );
+
   const classes = useStyles();
 
   return (
