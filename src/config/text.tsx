@@ -41,28 +41,28 @@ export const enLang = {
 
 export const enSlider = [
   {
-    label: "React Flutter software developer",
-    h1: "Front end",
-    h2: "MOBILE DEVELOPER",
-    name: "lll_web",
+    label: "Founder of koritski.com. Brings to life most profound ideas of yours",
+    h1: "Founder",
+    h2: "Developer in chief",
+    name: "Alexander Koritskiy",
   },
   {
-    label: "React Flutter software developer",
-    h1: "Back end",
-    h2: "MOBILE DEVELOPER",
-    name: "asdksda sdasd",
+    label: "Main technical supporter and the beauty of the team in any possible aspect",
+    h1: "Senior developer",
+    h2: "Back end",
+    name: "Maria Astashkina",
   },
   {
-    label: "React Flutter software developer",
-    h1: "Front end",
-    h2: "MOBILE DEVELOPER",
-    name: "lll_web",
+    label: "Main representative of the studio. In charge of any executive issues",
+    h1: "Business manager",
+    h2: "CEO",
+    name: "Maxim Evenko",
   },
   {
-    label: "React Flutter software developer",
-    h1: "Front end",
-    h2: "Mobile Developer",
-    name: "lll_web",
+    label: "The creative power in the office. Seizes your style and draws visual appearance of the product. ",
+    h1: "Designer, front-end developer",
+    h2: "Mobile apps developer",
+    name: "Mikhail",
   },
 ];
 
@@ -124,7 +124,7 @@ export const ruSlider = [
     name: "Максим Евенко ",
   },
   {
-    label: "Самый творческий член команды. Создает визуальный облик вашего сайта или мобильного приложения",
+    label: "Самый творческий член команды. Создает визуальный облик вашего продукта",
     h1: "Дизайнер и front-end разработчик",
     h2: "Разработчик мобильных приложений",
     name: "Михаил",

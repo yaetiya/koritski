@@ -85,7 +85,7 @@ function FooterSection({ isLight }: TFooterProps) {
                   request@koritski.com
                 </Typography>
                 <Typography variant="h6" className={classes.contacts}>
-                  +111 111 11 11
+                  +7 906 081 39 56
                 </Typography>
               </div>
             </div>
