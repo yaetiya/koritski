@@ -3,10 +3,12 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {
   // dLightBackgroundColor,
   dMainBackgroundColor,
+  dSecondaryTextColor,
   // dSecondaryTextColor,
   dTextColor,
   // lLightBackgroundColor,
   lMainBackgroundColor,
+  lSecondaryTextColor,
   // lSecondaryTextColor,
   lTextColor,
   orangeColor,
@@ -52,9 +54,9 @@ const TeamBlock = ({ isLight, isLang }: TTeacmBlockProps) => {
   //   ? lLightBackgroundColor
   //   : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
-  // const SecondaryTextColor = isLight
-  //   ? lSecondaryTextColor
-  //   : dSecondaryTextColor;
+  const SecondaryTextColor = isLight
+    ? lSecondaryTextColor
+    : dSecondaryTextColor;
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -75,6 +77,9 @@ const TeamBlock = ({ isLight, isLang }: TTeacmBlockProps) => {
       elBTN: {
         borderRadius: 23,
         color: TextColor,
+        "&:disabled":{
+          color: SecondaryTextColor
+        }
       },
       bottomBord: {
         backgroundColor: MainBackgroundColor,

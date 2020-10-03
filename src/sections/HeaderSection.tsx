@@ -91,7 +91,7 @@ const HeaderSection = ({
         backgroundColor: MainBackgroundColor,
         color: orangeColor,
         height: 40,
-        width: 160,
+        width: 180,
         fontWeight: "bold",
         fontSize: 24,
         border: "2px solid " + orangeColor,
@@ -299,7 +299,7 @@ const HeaderSection = ({
           marginLeft: 0,
         },
         langBtn: {
-          height: 30,
+          height: 40,
         },
         card_h: {
           paddingTop: 20,

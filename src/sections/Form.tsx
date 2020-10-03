@@ -101,7 +101,7 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
         backgroundColor: MainBackgroundColor,
         color: orangeColor,
         height: 40,
-        width: 160,
+        width: 180,
         fontWeight: "bold",
         fontSize: 24,
         border: "2px solid " + orangeColor,
@@ -186,6 +186,8 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
         company: "",
         idea: "",
       });
+      
+
     }
     setOpen(true);
   };
