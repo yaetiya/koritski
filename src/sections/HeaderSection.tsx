@@ -102,8 +102,20 @@ const HeaderSection = ({
         height: 36,
         width: 36,
       },
-
+      "@keyframes slideRight": {
+        from: {           transform: "scale(0.99,0.99)  translate(-50%, -50%)",
+        boxShadow: "none", },
+        to: { boxShadow: isLight ? lOutShadow : dOutShadow,
+          transform: "scale(1,1) translate(-50%, -50%)", },
+      },
+      // container: {
+      //   animationName: '$slideRight'
+      // }
       cardWrapper: {
+        animationName: "$slideRight",
+        animationDuration: "1s",
+        animationTimingFunction: "linear",
+
         // height: 190,
         // minWidth: 630,
         borderRadius: 20,
@@ -374,10 +386,18 @@ const HeaderSection = ({
           </Button>
         </div>
         <div className={classes.socialWrapper}>
-          <Button className={classes.langBtn} href={facebookLink} target="_blanck">
+          <Button
+            className={classes.langBtn}
+            href={facebookLink}
+            target="_blanck"
+          >
             <FacebookIcon className={classes.socialBtn} />
           </Button>
-          <Button className={classes.langBtn} href={instagramLink} target="_blanck">
+          <Button
+            className={classes.langBtn}
+            href={instagramLink}
+            target="_blanck"
+          >
             <InstagramIcon className={classes.socialBtn} />
           </Button>
           <Button
