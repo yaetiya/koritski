@@ -19,7 +19,7 @@ export default function HeadText({ mainText, lightColor }: THeadText) {
         justifyContent: "center",
         alignItems: "center",
         display: "flex",
-        marginTop: 130,
+        marginTop: 90,
       },
       hText: {
         color: lightColor,
@@ -27,6 +27,11 @@ export default function HeadText({ mainText, lightColor }: THeadText) {
         fontSize: 24,
         fontWeight: "lighter",
       },
+      "@media (max-width: 750px)": {
+        hWrapper: {
+          marginTop: 80,
+        }
+      }
     })
   );
   const classes = useStyles();

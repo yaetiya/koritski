@@ -41,28 +41,40 @@ export const enLang = {
 
 export const enSlider = [
   {
-    label: "Founder of koritski.com. Brings to life most profound ideas of yours",
+    label:
+      "Founder of koritski.com. Brings to life most profound ideas of yours",
     h1: "Founder",
     h2: "Developer in chief",
     name: "Alexander Koritskiy",
+    img: "t1.jpg",
+    instaLink: "https://www.instagram.com/",
   },
   {
-    label: "Main technical supporter and the beauty of the team in any possible aspect",
+    label:
+      "Main technical supporter and the beauty of the team in any possible aspect",
     h1: "Senior developer",
     h2: "Back end",
     name: "Maria Astashkina",
+    img: "t1.jpg",
+    instaLink: "https://www.instagram.com/",
   },
   {
-    label: "Main representative of the studio. In charge of any executive issues",
+    label:
+      "Main representative of the studio. In charge of any executive issues",
     h1: "Business manager",
     h2: "CEO",
     name: "Maxim Evenko",
+    img: "t1.jpg",
+    instaLink: "https://www.instagram.com/",
   },
   {
-    label: "The creative power in the office. Seizes your style and draws visual appearance of the product. ",
+    label:
+      "The creative power in the office. Seizes your style and draws visual appearance of the product. ",
     h1: "Designer, front-end developer",
     h2: "Mobile developer",
     name: "Mikhail Egorov",
+    img: "t1.jpg",
+    instaLink: "https://www.instagram.com/",
   },
 ];
 
@@ -80,12 +92,14 @@ export const ruLang = {
   projects: {
     cards: {
       0: {
-        h: "Веб Сайт",
-        description: "Веб сайты с широким функционалом, которые станут вашим самым покорным партнером в интернет пространстве: от одностраничных лэндингов до интернет-магазинов с тысячами товаров. Мы создаем онлайн лицо вашего бизнеса – первое впечатление от вас при знакомстве с клиентом. ",
+        h: "Веб-Сайт",
+        description:
+          "Веб-сайты с широким функционалом, которые станут вашим самым покорным партнером в интернет пространстве: от одностраничных лэндингов до интернет-магазинов с тысячами товаров. Мы создаем онлайн лицо вашего бизнеса – первое впечатление от вас при знакомстве с клиентом. ",
       },
       1: {
         h: "Мобильное приложение",
-        description: "Мобильные приложения, переносящие вас, вашу команду, продукт и клиентов на расстояние вытянутой руки. Самый простой способ навсегда остаться с вашим клиентом или быть на связи с вашими сотрудниками. Мы стираем проблему места и времени из всего процесса CR и менеджмента.",
+        description:
+          "Мобильные приложения, переносящие вас, вашу команду, продукт и клиентов на расстояние вытянутой руки. Самый простой способ навсегда остаться с вашим клиентом или быть на связи с вашими сотрудниками. Мы стираем проблему места и времени из всего процесса CR и менеджмента.",
       },
     },
   },
@@ -106,27 +120,39 @@ export const ruLang = {
 
 export const ruSlider = [
   {
-    label: "Основатель проекта koritski.com. Воплощает в жизнь самые продвинутые идеи. ",
+    label:
+      "Основатель проекта koritski.com. Воплощает в жизнь самые продвинутые идеи. ",
     h1: "Основатель студии",
     h2: "Главный разработчик",
     name: "Александр Корицкий",
+    img: "t1.jpg",
+    instaLink: "https://www.instagram.com/",
   },
   {
-    label: "Правая рука главного разработчика и во всех смыслах самая прекрасная часть команды",
+    label:
+      "Правая рука главного разработчика и во всех смыслах самая прекрасная часть команды",
     h1: "Back end разработчик",
     h2: "Второй разработчик",
     name: "Мария Асташкин",
+    img: "t1.jpg",
+    instaLink: "https://www.instagram.com/",
   },
   {
-    label: "Главное контактное лицо студии. Решает любые организационные вопросы.",
+    label:
+      "Главное контактное лицо студии. Решает любые организационные вопросы.",
     h1: "Бизнес-менеджер",
     h2: "Главный соискатель проектов",
     name: "Максим Евенко ",
+    img: "t1.jpg",
+    instaLink: "https://www.instagram.com/",
   },
   {
-    label: "Самый творческий член команды. Создает визуальный облик вашего продукта",
+    label:
+      "Самый творческий член команды. Создает визуальный облик вашего продукта",
     h1: "Дизайнер и front-end разработчик",
     h2: "Мобильный разработчик",
     name: "Михаил Егоров",
+    img: "t2.jpg",
+    instaLink: "https://www.instagram.com/",
   },
 ];

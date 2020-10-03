@@ -103,10 +103,14 @@ const HeaderSection = ({
         width: 36,
       },
       "@keyframes slideRight": {
-        from: {           transform: "scale(0.99,0.99)  translate(-50%, -50%)",
-        boxShadow: "none", },
-        to: { boxShadow: isLight ? lOutShadow : dOutShadow,
-          transform: "scale(1,1) translate(-50%, -50%)", },
+        from: {
+          transform: "scale(0.99,0.99)  translate(-50%, -50%)",
+          boxShadow: "none",
+        },
+        to: {
+          boxShadow: isLight ? lOutShadow : dOutShadow,
+          transform: "scale(1,1) translate(-50%, -50%)",
+        },
       },
       // container: {
       //   animationName: '$slideRight'
@@ -251,33 +255,107 @@ const HeaderSection = ({
         width: 40,
       },
       "@media (max-width: 750px)": {
+        // nav: {
+        //   display: "none",
+        // },
+        logo_wrapper: {
+          textAlign: "center",
+        },
+        navbar_btn: {
+          display: "none",
+        },
+        card_h5: {
+          width: "100%",
+        },
+        card_h: {
+          display: "none",
+        },
+        card_hm: {
+          textAlign: "center",
+          margin: 0,
+        },
         cardTopText: {
+          textAlign: "center",
+          margin: 0,
+          width: "90%",
+          marginLeft: "4%",
           display: "block",
         },
+        cardTextWrapper:{
+          margin: 0,
+        },
         cardContentWrapper: {
+          marginTop: 150,
+          paddingTop: 20,
           display: "block",
+
         },
         nav: {
           display: "block",
         },
-        card_h5: {
-          display: "none",
-        },
+        // card_h5: {
+        //   display: "none",
+        // },
         cardLogo: {
           display: "none",
         },
         cardWrapper: {
-          marginTop: 100,
           position: "relative",
           width: "100%",
         },
+        langWrapper: {
+          // position: "relative",
+          left: "50%",
+          // marginLeft: "50%",
+          transform: "translate(-30%, -50%)",
+          width: "93%",
+          justifyContent: "space-between"
+        },socialWrapper: {
+          // position: "relative",
+          left: "50%",
+          // marginLeft: "50%",
+          transform: "translate(-30%, -50%)",
+          width: "93%",
+          justifyContent: "space-between"
+        },
+        // langWrapper: {
+        //   // position: "absolute",
+        //   // left: "50%",
+        //   // top: "50%",
+        //   transform: "translate(0%, 0%)",
+        //   position: "relative",
+        //   marginTop: 40,
+        //   paddingLeft: 0,
+        //   left: 0,
+        //   display: "flex",
+        // },
+        // socialWrapper: {
+        //   // position: "absolute",
+        //   // left: "50%",
+        //   // top: "50%",
+        //   transform: "translate(0%, 0%)",
+        //   position: "relative",
+        //   marginTop: 40,
+        //   paddingLeft: 0,
+        //   left: 0,
+        //   display: "flex",
+        // },
+        langBtn: {
+          marginLeft: 20,
+          marginBottom: 0,
+        },
+        head: {
+          minHeight: 0,
+        },
+      },
+      "@media (max-width: 700px)": {
         langWrapper: {
           // position: "absolute",
           // left: "50%",
           // top: "50%",
           transform: "translate(0%, 0%)",
           position: "relative",
-          marginTop: 40,
+          marginTop: 0,
           paddingLeft: 0,
           left: 0,
           display: "flex",
@@ -288,22 +366,13 @@ const HeaderSection = ({
           // top: "50%",
           transform: "translate(0%, 0%)",
           position: "relative",
-          marginTop: 40,
+          marginTop: 0,
           paddingLeft: 0,
           left: 0,
           display: "flex",
         },
-        langBtn: {
-          marginLeft: 20,
-          marginBottom: 0,
-        },
-        head: {
-          minHeight: 400,
-        },
-      },
-      "@media (max-width: 400px)": {
         cardWrapper: {
-          marginTop: 100,
+          marginTop: 0,
           position: "relative",
           width: "100%",
         },
@@ -360,6 +429,7 @@ const HeaderSection = ({
             </Button>
           </div>
         </Container>
+
         <div className={classes.langWrapper}>
           <Button
             className={
@@ -385,6 +455,23 @@ const HeaderSection = ({
             En
           </Button>
         </div>
+        <div className={classes.cardWrapper}>
+          <div className={classes.cardContentWrapper}>
+            <img src="logo.png" className={classes.cardLogo} alt="logo"></img>
+            <div className={classes.cardTextWrapper}>
+              <div className={classes.cardTopText}>
+                <Typography className={classes.card_h}>KORITSKI</Typography>
+                <Typography className={classes.card_h5}>WEB STUDIO</Typography>
+              </div>
+              <div>
+                <Typography className={classes.card_hm}>
+                  {lang.header.slog}
+                </Typography>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className={classes.socialWrapper}>
           <Button
             className={classes.langBtn}
@@ -406,22 +493,6 @@ const HeaderSection = ({
           >
             <EmojiObjectsIcon className={classes.themeChange} />
           </Button>
-        </div>
-        <div className={classes.cardWrapper}>
-          <div className={classes.cardContentWrapper}>
-            <img src="logo.png" className={classes.cardLogo} alt="logo"></img>
-            <div className={classes.cardTextWrapper}>
-              <div className={classes.cardTopText}>
-                <Typography className={classes.card_h}>KORITSKI</Typography>
-                <Typography className={classes.card_h5}>WEB STUDIO</Typography>
-              </div>
-              <div>
-                <Typography className={classes.card_hm}>
-                  {lang.header.slog}
-                </Typography>
-              </div>
-            </div>
-          </div>
         </div>
       </header>
     </>

@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     teamBlockWrapper: {
       marginTop: 40,
+      marginBottom: 120,
       width: "90%",
       marginLeft: "5%",
     },

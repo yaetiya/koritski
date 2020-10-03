@@ -1,8 +1,31 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import clsx from "clsx";
+import ShareIcon from "@material-ui/icons/Share";
+import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
+import InstagramIcon from "@material-ui/icons/Instagram";
 
-import { createStyles, Theme, Typography } from "@material-ui/core";
-import { orangeColor } from "../config/palette";
+import {
+  Avatar,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Collapse,
+  createStyles,
+  IconButton,
+  Theme,
+  Typography,
+  useTheme,
+} from "@material-ui/core";
+import { dLightBackgroundColor, orangeColor } from "../config/palette";
 
 type TOneInfo = {
   subj1: String;
@@ -10,9 +33,23 @@ type TOneInfo = {
   tec: String;
   name: String;
   darkColor: string;
+  TextColor: string;
+  secondaryTextColor: string;
+  img: string;
+  instaLink: string;
 };
 
-export default function OneInfo({ subj1, subj2, tec, name,darkColor,  }: TOneInfo) {
+export default function OneInfo({
+  subj1,
+  subj2,
+  tec,
+  name,
+  darkColor,
+  img,
+  TextColor,
+  secondaryTextColor,
+  instaLink
+}: TOneInfo) {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       oneInfoWrapper: {
@@ -48,6 +85,62 @@ export default function OneInfo({ subj1, subj2, tec, name,darkColor,  }: TOneInf
         fontSize: 24,
       },
 
+      root: {
+        justifyContent: "space-between",
+
+        // color: TextColor,
+        backgroundColor: darkColor,
+        display: "flex",
+      },
+      media: {
+        // width: "26%",
+        width: 240,
+        margin: 16,
+        borderRadius: 6,
+        height: 200,
+        // paddingTop: "56.25%", // 16:9
+      },
+      cardText: {
+        width: "100%",
+        color: TextColor,
+      },
+      cardWrapper: {
+        color: TextColor,
+      },
+
+      socialBtn: {
+        borderTop: "2px solid " + orangeColor,
+        height: 40,
+        width: 40,
+        color: orangeColor,
+        borderRadius: 0,
+      },
+      secondaryText:{
+        color: secondaryTextColor,
+      },
+      headlineWrapper:{
+        justifyContent:"space-between",
+        display: "flex"
+      },
+      "@media (max-width: 600px)": {
+        root: {
+          textAlign: "center",
+          // color: TextColor,
+          // backgroundColor: darkColor,
+          display: "block",
+        },
+        cardText: {
+          width: "auto",
+        },
+        media: {
+          display: "none",
+          width: "100%",
+        },
+        headlineWrapper:{
+          justifyContent:"center",
+          display: "block "
+        },
+      },
       "@media (max-width: 400px)": {
         oneInfoWrapper: {
           border: "0px solid black",
@@ -69,21 +162,49 @@ export default function OneInfo({ subj1, subj2, tec, name,darkColor,  }: TOneInf
   const classes = useStyles();
 
   return (
-    <div className={classes.oneInfoWrapper}>
-      <div className={classes.oneInfoContentWrapper}>
-        <Typography variant="h5" className={classes.oneInfotext}>
-          {subj1}
-        </Typography>
-        <Typography variant="h5" className={classes.oneInfotext}>
-          {subj2}
-        </Typography>
-        <Typography variant="body2" className={classes.oneInfotextLow}>
-          {tec}
-        </Typography>
-        <Typography variant="body2" className={classes.oneInfotextLowRight}>
+    // <div className={classes.oneInfoWrapper}>
+    //   <div className={classes.oneInfoContentWrapper}>
+    //     <Typography variant="h5" className={classes.oneInfotext}>
+    //       {subj1}
+    //     </Typography>
+    //     <Typography variant="h5" className={classes.oneInfotext}>
+    //       {subj2}
+    //     </Typography>
+    //     <Typography variant="body2" className={classes.oneInfotextLow}>
+    //       {tec}
+    //     </Typography>
+    //     <Typography variant="body2" className={classes.oneInfotextLowRight}>
+    //       {name}
+    //     </Typography>
+    //   </div>
+    // </div>
+    <Card className={classes.root} elevation={0}>
+      <CardContent className={classes.cardText}>
+        <div className={classes.headlineWrapper}>
+        <Typography gutterBottom variant="h4" component="h2">
           {name}
         </Typography>
-      </div>
-    </div>
+        <Button href={instaLink}
+            target="_blanck" className={classes.socialBtn} aria-label="settings">
+            <InstagramIcon />
+          </Button>
+        </div>
+        <Typography className={classes.secondaryText} gutterBottom variant="h5" component="h2">
+          {subj1}
+        </Typography>
+        <Typography className={classes.secondaryText} gutterBottom variant="h5" component="h2">
+          {subj2}
+        </Typography>
+        <Typography
+          className={classes.secondaryText}
+          variant="body2"
+          color="textSecondary"
+          component="p"
+        >
+          {tec}
+        </Typography>
+      </CardContent>
+      <CardMedia className={classes.media} image={img} title="Paella dish" />
+    </Card>
   );
 }

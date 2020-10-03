@@ -61,11 +61,11 @@ const TeamBlock = ({ isLight, isLang }: TTeacmBlockProps) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       teamBlockWrapper: {
-        backgroundColor: orangeColor,
         // boxShadow: "-10px -10px 40px #FF825B, 10px 10px 40px #A63D1D",
         borderRadius: 20,
-        width: "60%",
-        marginLeft: "10%",
+        marginTop: 60,
+        width: "70%",
+        marginLeft: "15%",
       },
       teamBlockContentWrapper: {
         marginTop: 15,
@@ -83,7 +83,8 @@ const TeamBlock = ({ isLight, isLang }: TTeacmBlockProps) => {
       },
       bottomBord: {
         backgroundColor: MainBackgroundColor,
-        borderRadius: 23,
+        borderRadius: 6,
+        marginTop: 20,
       },
       "@media (max-width: 600px)": {
         teamBlockWrapper: {
@@ -110,12 +111,16 @@ const TeamBlock = ({ isLight, isLang }: TTeacmBlockProps) => {
     <Container maxWidth="lg">
       <div className={classes.teamBlockWrapper}>
         <div className={classes.teamBlockContentWrapper}>
-          <OneInfo
+        <OneInfo
             subj1={sliderContent[activeStep].h2}
             subj2={sliderContent[activeStep].h1}
             tec={sliderContent[activeStep].label}
             name={sliderContent[activeStep].name}
+            img = {sliderContent[activeStep].img}
+            secondaryTextColor = {SecondaryTextColor}
             darkColor={MainBackgroundColor}
+            TextColor={TextColor}
+            instaLink={sliderContent[activeStep].instaLink}
           />
           <MobileStepper
             className={classes.bottomBord}
