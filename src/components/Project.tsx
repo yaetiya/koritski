@@ -24,6 +24,12 @@ export default function Project({
       ProjectWrapper: {
         boxShadow:
           Shadow,
+          transitionDuration: "1.5s",
+        transform: "scale(0.98,0.98)",
+        "&:hover": {
+          transform: "scale(1,1)",
+          boxShadow: "none",
+        },
         borderRadius: 43,
         backgroundColor: MainBackgroundColor,
       },
