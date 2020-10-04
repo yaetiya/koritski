@@ -1,5 +1,4 @@
 import { TStore } from "../typescript/storeType";
-// import emailjs from 'emailjs';
 import { CHANGE_LANG, CHANGE_THEME, FORM_SEND } from "./types";
 
 const initialState: TStore = {

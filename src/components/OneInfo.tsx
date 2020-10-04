@@ -38,11 +38,8 @@ export default function OneInfo({
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       oneInfoWrapper: {
-        // border: "2px solid " + darkColor,
         borderRadius: 13,
         backgroundColor: orangeColor,
-
-        //com
         paddingTop: 20,
       },
       oneInfoContentWrapper: {
@@ -58,7 +55,6 @@ export default function OneInfo({
         color: darkColor,
         fontSize: 36,
         paddingRight: 20,
-        // minWidth: 220,
       },
       oneInfotextLow: {
         color: darkColor,
@@ -72,18 +68,14 @@ export default function OneInfo({
 
       root: {
         justifyContent: "space-between",
-
-        // color: TextColor,
         backgroundColor: darkColor,
         display: "flex",
       },
       media: {
-        // width: "26%",
         width: 240,
         margin: 16,
         borderRadius: 6,
         height: 200,
-        // paddingTop: "56.25%", // 16:9
       },
       cardText: {
         width: "100%",
@@ -110,8 +102,6 @@ export default function OneInfo({
       "@media (max-width: 600px)": {
         root: {
           textAlign: "center",
-          // color: TextColor,
-          // backgroundColor: darkColor,
           display: "block",
         },
         cardText: {
@@ -147,22 +137,6 @@ export default function OneInfo({
   const classes = useStyles();
 
   return (
-    // <div className={classes.oneInfoWrapper}>
-    //   <div className={classes.oneInfoContentWrapper}>
-    //     <Typography variant="h5" className={classes.oneInfotext}>
-    //       {subj1}
-    //     </Typography>
-    //     <Typography variant="h5" className={classes.oneInfotext}>
-    //       {subj2}
-    //     </Typography>
-    //     <Typography variant="body2" className={classes.oneInfotextLow}>
-    //       {tec}
-    //     </Typography>
-    //     <Typography variant="body2" className={classes.oneInfotextLowRight}>
-    //       {name}
-    //     </Typography>
-    //   </div>
-    // </div>
     <Card className={classes.root} elevation={0}>
       <CardContent className={classes.cardText}>
         <div className={classes.headlineWrapper}>

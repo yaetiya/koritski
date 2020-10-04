@@ -3,14 +3,10 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import React from "react";
 import { connect, ConnectedProps } from "react-redux";
 import {
-  // lMainBackgroundColor,
-  // dMainBackgroundColor,
   lLightBackgroundColor,
   dLightBackgroundColor,
   lTextColor,
   dTextColor,
-  // lSecondaryTextColor,
-  // dSecondaryTextColor,
 } from "../config/palette";
 import { TStore } from "../typescript/storeType";
 
@@ -29,23 +25,15 @@ interface TFooterProps extends PropsFromRedux {
 }
 
 function FooterSection({ isLight }: TFooterProps) {
-  // const MainBackgroundColor = isLight
-  //   ? lMainBackgroundColor
-  //   : dMainBackgroundColor;
   const LightBackgroundColor = isLight
     ? lLightBackgroundColor
     : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
-  // const SecondaryTextColor = isLight
-  //   ? lSecondaryTextColor
-  //   : dSecondaryTextColor;
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       footer: {
         paddingTop: 25,
-        //   display: "flex",
         textAlign: "center",
-        //   justifyContent: "space-between",
       },
       logo_wrapper: {
         textAlign: "center",
@@ -85,18 +73,10 @@ function FooterSection({ isLight }: TFooterProps) {
                   team@koritski.com
                 </Typography>
                 <Typography variant="h6" className={classes.contacts}>
-                +7 (906) 081-39-56
+                  +7 (906) 081-39-56
                 </Typography>
               </div>
             </div>
-            {/* <div>
-              <Typography variant="h6" className={classes.contacts}>
-                KORITSKI@gmail.com
-              </Typography>
-              <Typography variant="h6" className={classes.contacts}>
-                +911 111 11 11
-              </Typography>
-            </div> */}
           </div>
         </Container>
       </footer>

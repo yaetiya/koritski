@@ -12,16 +12,10 @@ import {
   orangeColor,
   lOutShadow,
   dOutShadow,
-  // lLightBackgroundColor,
-  // dLightBackgroundColor,
   lMainBackgroundColor,
   dMainBackgroundColor,
   lTextColor,
   dTextColor,
-  // lSecondaryTextColor,
-  // dSecondaryTextColor,
-  // lNavSmallBtnShadow,
-  // dNavSmallBtnShadow,
 } from "../config/palette";
 import { connect, ConnectedProps } from "react-redux";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -63,13 +57,7 @@ const HeaderSection = ({
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
     : dMainBackgroundColor;
-  // const LightBackgroundColor = isLight
-  //   ? lLightBackgroundColor
-  //   : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
-  // const SecondaryTextColor = isLight
-  //   ? lSecondaryTextColor
-  //   : dSecondaryTextColor;
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -112,20 +100,14 @@ const HeaderSection = ({
           transform: "scale(1,1) translate(-50%, -50%)",
         },
       },
-      // container: {
-      //   animationName: '$slideRight'
-      // }
+
       cardWrapper: {
         animationName: "$slideRight",
         animationDuration: "1s",
         animationTimingFunction: "linear",
 
-        // height: 190,
-        // minWidth: 630,
         borderRadius: 20,
-        // box-shadow: -80px -30px 124px 0px rgba(0,0,0,0.75);
-        // boxShadow: "-10px -10px 40px #FFFFFF, 10px 10px 40px #C5C5C5",
-        // transition: "1s",
+
         backgroundColor: MainBackgroundColor,
         position: "absolute",
         left: "50%",
@@ -135,7 +117,6 @@ const HeaderSection = ({
         boxShadow: isLight ? lOutShadow : dOutShadow,
         transform: "scale(1,1) translate(-50%, -50%)",
 
-        // transform: "translate(-50%, -50%)",
         "&:hover": {
           transform: "scale(0.99,0.99)  translate(-50%, -50%)",
           boxShadow: "none",
@@ -185,7 +166,6 @@ const HeaderSection = ({
         backgroundColor: MainBackgroundColor,
         color: TextColor,
         height: 64,
-        // boxShadow: isLight ? lNavSmallBtnShadow : dNavSmallBtnShadow,
         width: 64,
         fontSize: 14,
         borderRadius: 11,
@@ -237,7 +217,6 @@ const HeaderSection = ({
         },
 
         card_h5: {
-          // display: "none",
           marginLeft: 0,
         },
         cardLogo: {
@@ -255,9 +234,6 @@ const HeaderSection = ({
         width: 40,
       },
       "@media (max-width: 701px)": {
-        // nav: {
-        //   display: "none",
-        // },
         logo_wrapper: {
           textAlign: "center",
         },
@@ -281,21 +257,18 @@ const HeaderSection = ({
           marginLeft: "4%",
           display: "block",
         },
-        cardTextWrapper:{
+        cardTextWrapper: {
           margin: 0,
         },
         cardContentWrapper: {
           marginTop: 150,
           paddingTop: 20,
           display: "block",
-
         },
         nav: {
           display: "block",
         },
-        // card_h5: {
-        //   display: "none",
-        // },
+
         cardLogo: {
           display: "none",
         },
@@ -307,12 +280,13 @@ const HeaderSection = ({
           left: "50%",
           transform: "translate(-30%, -50%)",
           width: "93%",
-          justifyContent: "space-between"
-        },socialWrapper: {
+          justifyContent: "space-between",
+        },
+        socialWrapper: {
           left: "50%",
           transform: "translate(-30%, -50%)",
           width: "93%",
-          justifyContent: "space-between"
+          justifyContent: "space-between",
         },
         langBtn: {
           marginLeft: 20,
@@ -342,7 +316,7 @@ const HeaderSection = ({
         cardWrapper: {
           borderRadius: 0,
           marginTop: 300,
-          marginBottom:70,
+          marginBottom: 70,
           position: "relative",
           width: "100%",
         },
@@ -363,8 +337,6 @@ const HeaderSection = ({
   );
   const classes = useStyles();
   let scroll = animateScroll;
-
-
 
   const changeLangHandlerToRu = (event: any) => {
     event.persist();

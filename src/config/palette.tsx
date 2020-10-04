@@ -1,20 +1,17 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 
-export const orangeColor = "#F65D2E"; // Orange Primary
+export const orangeColor = "#F65D2E";
 
-//light Theme
-// export const lMainBackgroundColor = "#EBEBEB"; //backgroundCOlor
-export const lMainBackgroundColor = "#EEEFF2"; //backgroundCOlor
-export const lLightBackgroundColor = "#DFE5ED"; // Second backgroung color
-export const lTextColor = "#000"; //TextColor
-export const lSecondaryTextColor = "#919499"; //Second Text color
+export const lMainBackgroundColor = "#EEEFF2";
+export const lLightBackgroundColor = "#DFE5ED";
+export const lTextColor = "#000";
+export const lSecondaryTextColor = "#919499";
 export const lOutShadow = "-10px -10px 20px #FFFFFF, 10px 10px 20px #D3D8E8";
 export const lInShadow = "inset 20px 20px 20px #D3D8E8, inset -20px -20px 22px #FFFFFF";
 export const lNavSmallBtnShadow = "5px 5px 40px #DEDEDE"
 
 
-//dark Theme
 export const dMainBackgroundColor = "#1B1D22";
 export const dLightBackgroundColor = "#21262D";
 export const dTextColor = "#FFFFFF";
@@ -27,11 +24,9 @@ export const dNavSmallBtnShadow = "5px 5px 40px rgba(0, 0, 0, 0.4)"
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      // Purple and green play nicely together.
       main: orangeColor,
     },
     secondary: {
-      // This is green.A700 as hex.
       main: "#11cb5f",
     },
   },

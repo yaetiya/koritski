@@ -5,20 +5,12 @@ import App from "./App";
 import { applyMiddleware, createStore } from "redux";
 import { rootReducer } from "./redux/rootReducer";
 import { Provider } from "react-redux";
-import createSagamiddleware from 'redux-saga';
+import createSagamiddleware from "redux-saga";
 // import logger from "redux-logger";
 import { watchSendForm } from "./redux/sagas";
 
-
 const sagaMiddleware = createSagamiddleware();
-const store = createStore(
-  rootReducer,
-  applyMiddleware( sagaMiddleware)
-  // compose(
-  //   (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-  //     (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-  // )
-);
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(watchSendForm);
 
 ReactDOM.render(

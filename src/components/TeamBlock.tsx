@@ -1,15 +1,11 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {
-  // dLightBackgroundColor,
   dMainBackgroundColor,
   dSecondaryTextColor,
-  // dSecondaryTextColor,
   dTextColor,
-  // lLightBackgroundColor,
   lMainBackgroundColor,
   lSecondaryTextColor,
-  // lSecondaryTextColor,
   lTextColor,
 } from "../config/palette";
 import {
@@ -26,7 +22,6 @@ import { connect, ConnectedProps } from "react-redux";
 import { TStore } from "../typescript/storeType";
 import { enSlider, ruSlider } from "../config/text";
 
-// const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const mapStateToProps = (state: TStore) => {
   return {
@@ -49,9 +44,6 @@ const TeamBlock = ({ isLight, isLang }: TTeacmBlockProps) => {
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
     : dMainBackgroundColor;
-  // const LightBackgroundColor = isLight
-  //   ? lLightBackgroundColor
-  //   : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
   const SecondaryTextColor = isLight
     ? lSecondaryTextColor
@@ -60,7 +52,6 @@ const TeamBlock = ({ isLight, isLang }: TTeacmBlockProps) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       teamBlockWrapper: {
-        // boxShadow: "-10px -10px 40px #FF825B, 10px 10px 40px #A63D1D",
         borderRadius: 20,
         marginTop: 60,
         width: "70%",
@@ -69,7 +60,6 @@ const TeamBlock = ({ isLight, isLang }: TTeacmBlockProps) => {
       teamBlockContentWrapper: {
         marginTop: 15,
         marginLeft: "0%",
-        // marginTop: "0%",
         width: "100%",
         height: "80%",
       },

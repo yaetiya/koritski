@@ -27,7 +27,6 @@ export default function ScrollTopBtn() {
       },
       "@media (max-width: 400px)": {
         ScrollTopBtnWrapper: {
-          // transform: "scale(1, 1.5)",
           right: 25,
           bottom: 25,
         },

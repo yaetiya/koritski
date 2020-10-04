@@ -7,8 +7,6 @@ import { TStore } from "../typescript/storeType";
 import {
   lMainBackgroundColor,
   dMainBackgroundColor,
-  // lLightBackgroundColor,
-  // dLightBackgroundColor,
   lTextColor,
   dTextColor,
   lSecondaryTextColor,
@@ -63,9 +61,6 @@ const ProjectsBlock = ({ isLight, isLang }: TProjectsBlockProps) => {
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
     : dMainBackgroundColor;
-  // const LightBackgroundColor = isLight
-  //   ? lLightBackgroundColor
-  //   : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
   const SecondaryTextColor = isLight
     ? lSecondaryTextColor

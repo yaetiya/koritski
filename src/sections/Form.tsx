@@ -22,12 +22,10 @@ import {
   dInShadow,
   dLightBackgroundColor,
   dMainBackgroundColor,
-  // dSecondaryTextColor,
   dTextColor,
   lInShadow,
   lLightBackgroundColor,
   lMainBackgroundColor,
-  // lSecondaryTextColor,
   lTextColor,
   orangeColor,
 } from "../config/palette";
@@ -72,9 +70,6 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
     ? lLightBackgroundColor
     : dLightBackgroundColor;
   const TextColor = isLight ? lTextColor : dTextColor;
-  // const SecondaryTextColor = isLight
-  //   ? lSecondaryTextColor
-  //   : dSecondaryTextColor;
   const InShadow = isLight ? lInShadow : dInShadow;
 
   const useStyles = makeStyles((theme: Theme) =>
@@ -112,7 +107,6 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
       },
       LTBBackground: {
         width: "100%",
-        // height: 44,
         borderRadius: 13,
         backgroundColor: LightBackgroundColor,
         marginBottom: 50,
@@ -121,9 +115,6 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
         width: "92%",
         marginTop: 20,
         marginBottom: 20,
-        // paddingTop: 20,
-        // paddingBottom: 30,
-        // minWidth: 100,
       },
       LTBWrapper: {
         marginLeft: "4%",
@@ -135,7 +126,6 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
       },
 
       LTDBackground: {
-        // minWidth: 220,
         width: "100%",
         boxShadow: InShadow,
         borderRadius: 13,
@@ -144,7 +134,6 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
       },
       LTDTextField: {
         width: "92%",
-        // minWidth: 2000,
         marginTop: 20,
         marginBottom: 20,
       },

@@ -1,4 +1,3 @@
-//EN LANG
 
 export const enLang = {
   headl: {
@@ -76,7 +75,6 @@ export const enSlider = [
   },
 ];
 
-//RU LANG
 export const ruLang = {
   headl: {
     projects: "ПРОЕКТЫ",
