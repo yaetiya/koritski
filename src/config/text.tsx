@@ -43,7 +43,7 @@ export const enSlider = [
       "Founder of koritski.com. Brings to life most profound ideas of yours",
     h1: "Founder",
     h2: "Developer in chief",
-    name: "Alexander Koritskiy",
+    name: "Alexander Koritski",
     img: "t1.jpg",
     instaLink: "team@koritski.com",
   },
