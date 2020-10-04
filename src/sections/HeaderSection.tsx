@@ -254,7 +254,7 @@ const HeaderSection = ({
         height: 40,
         width: 40,
       },
-      "@media (max-width: 750px)": {
+      "@media (max-width: 701px)": {
         // nav: {
         //   display: "none",
         // },
@@ -304,42 +304,16 @@ const HeaderSection = ({
           width: "100%",
         },
         langWrapper: {
-          // position: "relative",
           left: "50%",
-          // marginLeft: "50%",
           transform: "translate(-30%, -50%)",
           width: "93%",
           justifyContent: "space-between"
         },socialWrapper: {
-          // position: "relative",
           left: "50%",
-          // marginLeft: "50%",
           transform: "translate(-30%, -50%)",
           width: "93%",
           justifyContent: "space-between"
         },
-        // langWrapper: {
-        //   // position: "absolute",
-        //   // left: "50%",
-        //   // top: "50%",
-        //   transform: "translate(0%, 0%)",
-        //   position: "relative",
-        //   marginTop: 40,
-        //   paddingLeft: 0,
-        //   left: 0,
-        //   display: "flex",
-        // },
-        // socialWrapper: {
-        //   // position: "absolute",
-        //   // left: "50%",
-        //   // top: "50%",
-        //   transform: "translate(0%, 0%)",
-        //   position: "relative",
-        //   marginTop: 40,
-        //   paddingLeft: 0,
-        //   left: 0,
-        //   display: "flex",
-        // },
         langBtn: {
           marginLeft: 20,
           marginBottom: 0,
@@ -350,9 +324,6 @@ const HeaderSection = ({
       },
       "@media (max-width: 700px)": {
         langWrapper: {
-          // position: "absolute",
-          // left: "50%",
-          // top: "50%",
           transform: "translate(0%, 0%)",
           position: "relative",
           marginTop: 0,
@@ -361,9 +332,6 @@ const HeaderSection = ({
           display: "flex",
         },
         socialWrapper: {
-          // position: "absolute",
-          // left: "50%",
-          // top: "50%",
           transform: "translate(0%, 0%)",
           position: "relative",
           marginTop: 0,

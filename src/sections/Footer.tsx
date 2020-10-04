@@ -82,7 +82,7 @@ function FooterSection({ isLight }: TFooterProps) {
               <img src="logo.png" className={classes.logo} alt="logo"></img>
               <div>
                 <Typography variant="h6" className={classes.contacts}>
-                  request@koritski.com
+                  team@koritski.com
                 </Typography>
                 <Typography variant="h6" className={classes.contacts}>
                 +7 (906) 081-39-56

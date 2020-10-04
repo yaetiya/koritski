@@ -8,8 +8,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-import InstagramIcon from "@material-ui/icons/Instagram";
-
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import {
   Avatar,
   Button,
@@ -48,7 +47,7 @@ export default function OneInfo({
   img,
   TextColor,
   secondaryTextColor,
-  instaLink
+  instaLink,
 }: TOneInfo) {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -115,12 +114,12 @@ export default function OneInfo({
         color: orangeColor,
         borderRadius: 0,
       },
-      secondaryText:{
+      secondaryText: {
         color: secondaryTextColor,
       },
-      headlineWrapper:{
-        justifyContent:"space-between",
-        display: "flex"
+      headlineWrapper: {
+        justifyContent: "space-between",
+        display: "flex",
       },
       "@media (max-width: 600px)": {
         root: {
@@ -136,9 +135,9 @@ export default function OneInfo({
           display: "none",
           width: "100%",
         },
-        headlineWrapper:{
-          justifyContent:"center",
-          display: "block "
+        headlineWrapper: {
+          justifyContent: "center",
+          display: "block ",
         },
       },
       "@media (max-width: 400px)": {
@@ -181,18 +180,32 @@ export default function OneInfo({
     <Card className={classes.root} elevation={0}>
       <CardContent className={classes.cardText}>
         <div className={classes.headlineWrapper}>
-        <Typography gutterBottom variant="h4" component="h2">
-          {name}
-        </Typography>
-        <Button href={instaLink}
-            target="_blanck" className={classes.socialBtn} aria-label="settings">
-            <InstagramIcon />
+          <Typography gutterBottom variant="h4" component="h2">
+            {name}
+          </Typography>
+          <Button
+            target="_blanck"
+            href={"mailto:"+instaLink}
+            className={classes.socialBtn}
+            aria-label="settings"
+          >
+            <MailOutlineIcon />
           </Button>
         </div>
-        <Typography className={classes.secondaryText} gutterBottom variant="h5" component="h2">
+        <Typography
+          className={classes.secondaryText}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
           {subj1}
         </Typography>
-        <Typography className={classes.secondaryText} gutterBottom variant="h5" component="h2">
+        <Typography
+          className={classes.secondaryText}
+          gutterBottom
+          variant="h5"
+          component="h2"
+        >
           {subj2}
         </Typography>
         <Typography

@@ -55,7 +55,7 @@ export const enSlider = [
     h1: "Senior developer",
     h2: "Back end",
     name: "Maria Astashkina",
-    img: "t1.jpg",
+    img: "t2.jpg",
     instaLink: "https://www.instagram.com/",
   },
   {
@@ -64,7 +64,7 @@ export const enSlider = [
     h1: "Business manager",
     h2: "CEO",
     name: "Maxim Evenko",
-    img: "t1.jpg",
+    img: "t3.jpg",
     instaLink: "https://www.instagram.com/",
   },
   {
@@ -73,8 +73,8 @@ export const enSlider = [
     h1: "Designer, front-end developer",
     h2: "Mobile developer",
     name: "Mikhail Egorov",
-    img: "t1.jpg",
-    instaLink: "https://www.instagram.com/",
+    img: "t4.jpg",
+    instaLink: "megorov@koritski.com",
   },
 ];
 
@@ -134,7 +134,7 @@ export const ruSlider = [
     h1: "Back end разработчик",
     h2: "Второй разработчик",
     name: "Мария Асташкин",
-    img: "t1.jpg",
+    img: "t2.jpg",
     instaLink: "https://www.instagram.com/",
   },
   {
@@ -143,7 +143,7 @@ export const ruSlider = [
     h1: "Бизнес-менеджер",
     h2: "Главный соискатель проектов",
     name: "Максим Евенко ",
-    img: "t1.jpg",
+    img: "t3.jpg",
     instaLink: "https://www.instagram.com/",
   },
   {
@@ -152,7 +152,7 @@ export const ruSlider = [
     h1: "Дизайнер и front-end разработчик",
     h2: "Мобильный разработчик",
     name: "Михаил Егоров",
-    img: "t2.jpg",
-    instaLink: "https://www.instagram.com/",
+    img: "t4.jpg",
+    instaLink: "megorov@koritski.com",
   },
 ];
