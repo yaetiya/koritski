@@ -1,30 +1,16 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import clsx from "clsx";
-import ShareIcon from "@material-ui/icons/Share";
-import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import {
-  Avatar,
   Button,
   Card,
-  CardActions,
   CardContent,
-  CardHeader,
   CardMedia,
-  Collapse,
   createStyles,
-  IconButton,
   Theme,
   Typography,
-  useTheme,
 } from "@material-ui/core";
-import { dLightBackgroundColor, orangeColor } from "../config/palette";
+import { orangeColor } from "../config/palette";
 
 type TOneInfo = {
   subj1: String;
@@ -217,7 +203,7 @@ export default function OneInfo({
           {tec}
         </Typography>
       </CardContent>
-      <CardMedia className={classes.media} image={img} title="Paella dish" />
+      <CardMedia className={classes.media} image={img} title="Team" />
     </Card>
   );
 }

@@ -15,7 +15,6 @@ import {
   // lMainBackgroundColor,
   // lSecondaryTextColor,
   lTextColor,
-  orangeColor,
 } from "../config/palette";
 import { connect, ConnectedProps } from "react-redux";
 import { TStore } from "../typescript/storeType";

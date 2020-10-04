@@ -13,14 +13,12 @@ export const enLang = {
   projects: {
     cards: {
       0: {
-        h: "Web Site",
-        description:
-          "Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui rati",
+        h: "Web-site",
+        description:"Web-sites of wide applications that become your most trustworthy partner in the Internet – from single-page landings to online shops with thousands items of goods and services. We create the digital face of your business – the one that your client will meet first.",
       },
       1: {
         h: "Mobile app",
-        description:
-          "Sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui rati",
+        description:"Mobile applications that bring you, your team, product and clients at arm’s length. It is the easiest way to be close to your customer or to stay in touch with your team. We are overcoming problem of place and time in the whole process of CR and management once and forever.",
       },
     },
   },
@@ -47,7 +45,7 @@ export const enSlider = [
     h2: "Developer in chief",
     name: "Alexander Koritskiy",
     img: "t1.jpg",
-    instaLink: "https://www.instagram.com/",
+    instaLink: "team@koritski.com",
   },
   {
     label:
@@ -56,7 +54,7 @@ export const enSlider = [
     h2: "Back end",
     name: "Maria Astashkina",
     img: "t2.jpg",
-    instaLink: "https://www.instagram.com/",
+    instaLink: "mastashkina@koritski.com",
   },
   {
     label:
@@ -65,7 +63,7 @@ export const enSlider = [
     h2: "CEO",
     name: "Maxim Evenko",
     img: "t3.jpg",
-    instaLink: "https://www.instagram.com/",
+    instaLink: "mevenko@koritski.com",
   },
   {
     label:
@@ -93,8 +91,7 @@ export const ruLang = {
     cards: {
       0: {
         h: "Веб-Сайт",
-        description:
-          "Веб-сайты с широким функционалом, которые станут вашим самым покорным партнером в интернет пространстве: от одностраничных лэндингов до интернет-магазинов с тысячами товаров. Мы создаем онлайн лицо вашего бизнеса – первое впечатление от вас при знакомстве с клиентом. ",
+        description:"Веб-сайты с широким функционалом, которые станут вашим самым покорным партнером в интернет пространстве: от одностраничных лэндингов до интернет-магазинов с тысячами товаров. Мы создаем онлайн лицо вашего бизнеса – первое впечатление от вас при знакомстве с клиентом. ",
       },
       1: {
         h: "Мобильное приложение",
@@ -126,7 +123,7 @@ export const ruSlider = [
     h2: "Главный разработчик",
     name: "Александр Корицкий",
     img: "t1.jpg",
-    instaLink: "https://www.instagram.com/",
+    instaLink: "team@koritski.com",
   },
   {
     label:
@@ -135,7 +132,7 @@ export const ruSlider = [
     h2: "Второй разработчик",
     name: "Мария Асташкин",
     img: "t2.jpg",
-    instaLink: "https://www.instagram.com/",
+    instaLink: "mastashkina@koritski.com",
   },
   {
     label:
@@ -144,7 +141,7 @@ export const ruSlider = [
     h2: "Главный соискатель проектов",
     name: "Максим Евенко ",
     img: "t3.jpg",
-    instaLink: "https://www.instagram.com/",
+    instaLink: "mevenko@koritski.com",
   },
   {
     label:

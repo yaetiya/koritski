@@ -154,7 +154,7 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
       "@media (max-width: 600px)": {
         LTDBackground: {
           minHeight: 0,
-          width: "126%",
+          width: "133%",
         },
         LTBWrapper: {
           marginLeft: 10,

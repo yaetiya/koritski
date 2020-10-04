@@ -11,7 +11,6 @@ import {
   lSecondaryTextColor,
   // lSecondaryTextColor,
   lTextColor,
-  orangeColor,
 } from "../config/palette";
 import {
   Button,
