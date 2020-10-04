@@ -340,7 +340,9 @@ const HeaderSection = ({
           display: "flex",
         },
         cardWrapper: {
-          marginTop: 0,
+          borderRadius: 0,
+          marginTop: 300,
+          marginBottom:70,
           position: "relative",
           width: "100%",
         },
@@ -361,6 +363,8 @@ const HeaderSection = ({
   );
   const classes = useStyles();
   let scroll = animateScroll;
+
+
 
   const changeLangHandlerToRu = (event: any) => {
     event.persist();

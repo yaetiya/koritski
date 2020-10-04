@@ -2,7 +2,7 @@
 
 export const enLang = {
   headl: {
-    projects: "PROJECTS",
+    projects: "PRODUCTS",
     about: "ABOUT US",
     form: "TELL US ABOUT YOUR APPLICATION IDEA",
   },
