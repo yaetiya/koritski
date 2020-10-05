@@ -79,8 +79,8 @@ function FooterSection({ isLight }: TFooterProps) {
                   </a>
                 </Typography>
                 <Typography variant="h6" className={classes.contacts}>
-                  <a href="tel:+79060813956" className={classes.link}>
-                    +7 (906) 081-39-56
+                  <a href="tel:+79151405353" className={classes.link}>
+                    +7 (915) 140-53-53
                   </a>
                 </Typography>
               </div>
