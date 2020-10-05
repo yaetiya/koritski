@@ -227,11 +227,6 @@ const HeaderSection = ({
         height: 40,
         width: 40,
       },
-      themeChange: {
-        color: MainBackgroundColor,
-        height: 40,
-        width: 40,
-      },
       "@media (max-width: 701px)": {
         logo_wrapper: {
           textAlign: "center",
@@ -296,6 +291,10 @@ const HeaderSection = ({
         },
       },
       "@media (max-width: 700px)": {
+        socialBtn: {
+          height: 25,
+          width: 25,
+        },
         langWrapper: {
           transform: "translate(0%, 0%)",
           position: "relative",
