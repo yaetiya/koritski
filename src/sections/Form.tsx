@@ -93,8 +93,9 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
         marginRight: 20,
       },
       sbBtn: {
+        paddingTop: 20,
+        paddingBottom: 20,
         backgroundColor: MainBackgroundColor,
-        color: orangeColor,
         height: 40,
         width: 180,
         fontWeight: "bold",
