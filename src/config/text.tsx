@@ -59,7 +59,7 @@ export const enSlider = [
     label:
       "Main representative of the studio. In charge of any executive issues",
     h1: "Business manager",
-    h2: "CEO",
+    h2: "Head of Clients Relations",
     name: "Maxim Evenko",
     img: "t3.jpg",
     instaLink: "mevenko@koritski.com",

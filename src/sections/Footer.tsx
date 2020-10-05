@@ -41,6 +41,10 @@ function FooterSection({ isLight }: TFooterProps) {
       contacts: {
         color: TextColor,
       },
+      link: {
+        textDecoration: "none",
+        color: TextColor,
+      },
       logo: {
         paddingTop: 14,
         height: 36,
@@ -70,10 +74,14 @@ function FooterSection({ isLight }: TFooterProps) {
               <img src="logo.png" className={classes.logo} alt="logo"></img>
               <div>
                 <Typography variant="h6" className={classes.contacts}>
-                  team@koritski.com
+                  <a href="mailto:team@koritski.com" className={classes.link}>
+                    team@koritski.com
+                  </a>
                 </Typography>
                 <Typography variant="h6" className={classes.contacts}>
-                  +7 (906) 081-39-56
+                  <a href="tel:+79060813956" className={classes.link}>
+                    +7 (906) 081-39-56
+                  </a>
                 </Typography>
               </div>
             </div>

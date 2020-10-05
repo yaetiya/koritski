@@ -82,7 +82,6 @@ const HeaderSection = ({
         width: 180,
         fontWeight: "bold",
         fontSize: 24,
-        border: "2px solid " + orangeColor,
         borderRadius: 8,
       },
       logo: {
@@ -364,6 +363,9 @@ const HeaderSection = ({
               <Typography className={classes.logo_h}>KORITSKI</Typography>
             </div>
             <Button
+              variant="outlined"
+              color="primary"
+              style={{ border: "2px solid" }}
               className={classes.navbar_btn}
               onClick={() => {
                 scroll.scrollToBottom();

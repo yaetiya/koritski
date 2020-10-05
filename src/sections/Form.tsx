@@ -99,7 +99,7 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
         width: 180,
         fontWeight: "bold",
         fontSize: 24,
-        border: "2px solid " + orangeColor,
+        // border: "2px solid " + orangeColor,
         borderRadius: 8,
       },
       alignRight: {
@@ -175,8 +175,6 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
         company: "",
         idea: "",
       });
-      
-
     }
     setOpen(true);
   };
@@ -191,8 +189,7 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
     ) {
       noError = false;
       setAlertMessage(lang.form.alerts.error);
-    }
-    else{
+    } else {
       setAlertMessage(lang.form.alerts.submit);
     }
     return noError;
@@ -206,7 +203,6 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
       ...{ [event.target.name]: event.target.value },
     }));
   };
-
 
   const handleClose = (
     event: React.SyntheticEvent | React.MouseEvent,
@@ -224,9 +220,9 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
         <Snackbar
           ContentProps={{
             classes: {
-                root: classes.alert
-            }
-        }}
+              root: classes.alert,
+            },
+          }}
           anchorOrigin={{
             vertical: "bottom",
             horizontal: "left",
@@ -318,10 +314,20 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
           </Grid>
           <Grid container>
             <Grid item className={classes.alignRight} xs>
-              <Button className={classes.socialBtnWrapper} href={instagramLink} target="_blanck">
+              <Button
+                className={classes.socialBtnWrapper}
+                href={instagramLink}
+                target="_blanck"
+              >
                 <InstagramIcon className={classes.socialBtn} />
               </Button>
-              <Button className={classes.sbBtn} onClick={submitHandler}>
+              <Button
+                variant="outlined"
+                color="primary"
+                style={{ border: "2px solid" }}
+                className={classes.sbBtn}
+                onClick={submitHandler}
+              >
                 {lang.form.submitBtn}
               </Button>
             </Grid>
