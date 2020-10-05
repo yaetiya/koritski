@@ -434,10 +434,19 @@ const HeaderSection = ({
             <InstagramIcon className={classes.socialBtn} />
           </Button>
           <Button
-            className={classes.langBtn + " " + classes.colorChangerBtn}
+            className={classes.langBtn}
+            style={{
+              backgroundColor: orangeColor,
+            }}
             onClick={changeThemeHandler}
           >
-            <EmojiObjectsIcon className={classes.themeChange} />
+            <EmojiObjectsIcon
+              className={classes.socialBtn}
+              style={{
+                color: MainBackgroundColor,
+                backgroundColor: orangeColor,
+              }}
+            />
           </Button>
         </div>
       </header>
