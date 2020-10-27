@@ -16,8 +16,7 @@ import {
 } from "@material-ui/core";
 import HeadText from "../components/HeadText";
 import { useState } from "react";
-import { connect, ConnectedProps } from "react-redux";
-import { TStore } from "../typescript/storeType";
+import { useDispatch, useSelector } from "react-redux";
 import {
   dInShadow,
   dLightBackgroundColor,
@@ -32,6 +31,7 @@ import {
 import { enLang, ruLang } from "../config/text";
 import { TFormData } from "../typescript/form";
 import { instagramLink } from "../config/links";
+import { selectLang, selectTheme } from "../redux/selectors";
 
 type TForm = {
   phone: String;
@@ -40,26 +40,11 @@ type TForm = {
   idea: String;
 };
 
-const mapStateToProps = (state: TStore) => {
-  return {
-    isLight: state.theme.isLightTheme,
-    isLang: state.lang.lang,
-  };
-};
-const mapDispatchToProps = {
-  sendForm,
-};
-const connector = connect(mapStateToProps, mapDispatchToProps);
 
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-interface TFormProps extends PropsFromRedux {
-  isLight: boolean;
-  isLang: boolean;
-  sendForm: any;
-}
-
-const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
+const Form = () => {
+  const isLang = useSelector(selectLang);
+  const isLight = useSelector(selectTheme);
+  const dispatch = useDispatch();
   const [alertMessage, setAlertMessage] = useState("");
   const [open, setOpen] = React.useState(false);
   const lang = isLang ? enLang : ruLang;
@@ -167,7 +152,7 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
       id: Date.now().toString(),
     };
     if (validation(item)) {
-      sendForm(item);
+      dispatch(sendForm(item));
       setState({
         phone: "",
         email: "",
@@ -337,4 +322,4 @@ const Form = ({ isLight, isLang, sendForm }: TFormProps) => {
   );
 };
 
-export default connector(Form);
+export default Form;

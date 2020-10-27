@@ -10,27 +10,14 @@ import {
   lLightBackgroundColor,
   lTextColor,
 } from "../config/palette";
-import { connect, ConnectedProps } from "react-redux";
-import { TStore } from "../typescript/storeType";
+import { useSelector } from "react-redux";
 import { enLang, ruLang } from "../config/text";
+import { selectLang, selectTheme } from "../redux/selectors";
 
-const mapStateToProps = (state: TStore) => {
-  return {
-    isLight: state.theme.isLightTheme,
-    isLang: state.lang.lang,
-  };
-};
-const mapDispatchToProps = {};
-const connector = connect(mapStateToProps, mapDispatchToProps);
 
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-interface TAboutProps extends PropsFromRedux {
-  isLight: boolean;
-  isLang: boolean;
-}
-
-const About = ({ isLight, isLang }: TAboutProps) => {
+const About = () => {
+  const isLang = useSelector(selectLang);
+  const isLight = useSelector(selectTheme);
   const lang = isLang ? enLang : ruLang;
   const LightBackgroundColor = isLight
     ? lLightBackgroundColor
@@ -82,4 +69,4 @@ const About = ({ isLight, isLang }: TAboutProps) => {
   );
 };
 
-export default connector(About);
+export default About;

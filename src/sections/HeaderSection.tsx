@@ -17,42 +17,20 @@ import {
   lTextColor,
   dTextColor,
 } from "../config/palette";
-import { connect, ConnectedProps } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import { changeLang, changeTheme } from "../redux/actions";
 import FacebookIcon from "@material-ui/icons/Facebook";
-import { TStore } from "../typescript/storeType";
 import { enLang, ruLang } from "../config/text";
 import { facebookLink, instagramLink } from "../config/links";
+import { selectLang, selectTheme } from "../redux/selectors";
 
-const mapStateToProps = (state: TStore) => {
-  return {
-    isLight: state.theme.isLightTheme,
-    isLang: state.lang.lang,
-  };
-};
-const mapDispatchToProps = {
-  changeTheme,
-  changeLang,
-};
-const connector = connect(mapStateToProps, mapDispatchToProps);
 
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-interface THeaderProps extends PropsFromRedux {
-  isLight: boolean;
-  changeTheme: any;
-  changeLang: any;
-  isLang: boolean;
-}
-
-const HeaderSection = ({
-  isLight,
-  isLang,
-  changeTheme,
-  changeLang,
-}: THeaderProps) => {
+const HeaderSection = () => {
+  const isLang = useSelector(selectLang);
+  const isLight = useSelector(selectTheme);
+  const dispatch = useDispatch();
   const lang = isLang ? enLang : ruLang;
   const MainBackgroundColor = isLight
     ? lMainBackgroundColor
@@ -339,17 +317,17 @@ const HeaderSection = ({
   const changeLangHandlerToRu = (event: any) => {
     event.persist();
     if (isLang) {
-      changeLang(false);
+      dispatch(changeLang(false));
     }
   };
   const changeLangHandlerToEn = (event: any) => {
     event.persist();
     if (!isLang) {
-      changeLang(true);
+      dispatch(changeLang(true));
     }
   };
   const changeThemeHandler = () => {
-    changeTheme(!isLight);
+    dispatch(changeTheme(!isLight));
   };
 
   return (
@@ -453,4 +431,4 @@ const HeaderSection = ({
   );
 };
 
-export default connector(HeaderSection);
+export default HeaderSection;

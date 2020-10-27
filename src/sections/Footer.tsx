@@ -1,30 +1,17 @@
 import { Container, createStyles, Theme, Typography } from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import React from "react";
-import { connect, ConnectedProps } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   lLightBackgroundColor,
   dLightBackgroundColor,
   lTextColor,
   dTextColor,
 } from "../config/palette";
-import { TStore } from "../typescript/storeType";
+import { selectTheme } from "../redux/selectors";
 
-const mapStateToProps = (state: TStore) => {
-  return {
-    isLight: state.theme.isLightTheme,
-  };
-};
-const mapDispatchToProps = {};
-const connector = connect(mapStateToProps, mapDispatchToProps);
-
-type PropsFromRedux = ConnectedProps<typeof connector>;
-
-interface TFooterProps extends PropsFromRedux {
-  isLight: boolean;
-}
-
-function FooterSection({ isLight }: TFooterProps) {
+const FooterSection = () => {
+  const isLight = useSelector(selectTheme);
   const LightBackgroundColor = isLight
     ? lLightBackgroundColor
     : dLightBackgroundColor;
@@ -90,6 +77,6 @@ function FooterSection({ isLight }: TFooterProps) {
       </footer>
     </>
   );
-}
+};
 
-export default connector(FooterSection);
+export default FooterSection;
